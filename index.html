@@ -1,139 +1,308 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-commerce</title>
-    <link rel="stylesheet" href="./src/output.css">
-      <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css"  rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Online Store</title>
+    <script>
+        tailwind = {
+            darkMode: 'class'
+        }
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+   
+
 </head>
-<body>
-    <!-- section header -->
-    <div class=" w-full p-2  ">
-        <section class=" w-full top-0 sticky z-50 bg-white">
-            <header class=" w-[90%] py-8 flex flex-wrap justify-between   m-auto   ">
-                <!-- logo -->
-                <ul class="p-2  flex flex-col md:flex-row ">
-                    <li><i class="fa-solid fa-cart-shopping text-3xl font-bold  text-orange-600"></i><span class=" text-orange-600 font-bold text-3xl">Online</span> <span class=" text-3xl font-bold ">Store</span></li>
-                </ul>
-                <!-- toggle button -->
-                 <button data-collapse-toggle="navbar-default" class="  xl:hidden md:hidden  justify-end"><i class="fa-solid fa-bars text-2xl"></i></button>
-              
-                <!-- menu -->
-               <menu class="hidden w-full md:block md:w-auto sm:it" id="navbar-default">
-                    <ul class=" p-2  flex flex-col md:flex-row  md:p-0">
-                        
-                        <li class="xl:text-[16px] lg:text-[14px] md:text-[12px] font-medium cursor-pointer px-4 py-2 rounded-md  hover:bg-amber-400 hover:underline transition-all flex items-center gap-2 " >
-                            <i class="fa-solid fa-house"></i>
-                            <a href="">Home</a>
-                        </li>
 
-                        <li class="xl:text-[16px] lg:text-[14px] md:text-[12px] font-medium cursor-pointer px-4 py-2 rounded-md hover:bg-amber-400 hover:underline transition-all flex items-center gap-2">
-                            <i class="fa-solid fa-list"></i>
-                            <a href="">Product List</a>
-                        </li>
+<body class="bg-white dark:bg-gray-900 transition-all duration-300">
 
-                        <li class="xl:text-[16px] lg:text-[14px] md:text-[12px] font-medium cursor-pointer px-4 py-2 rounded-md hover:bg-amber-400 hover:underline transition-all flex items-center gap-2">
-                            <i class="fa-solid fa-box"></i>
-                            <a href="">Categories</a>
-                        </li>
+<div class="w-full p-2 ">
+    <!-- Header -->
+    <section class=" w-full sticky top-0 z-50">
+        <header class="container mx-auto  bg-white dark:bg-gray-900 shadow-lg  transition-all dark:shadow-[0_0_40px_#67bed9]">
 
-                        <li class="xl:text-[16px] lg:text-[14px] md:text-[12px] font-medium cursor-pointer px-4 py-2 rounded-md hover:bg-amber-400 hover:underline transition-all flex items-center gap-2">
-                            <i class="fa-solid fa-circle-info"></i>
-                            <a href="">About</a>
-                        </li>
+            <div class="py-4 flex flex-wrap justify-between items-center">
 
-                        <li class="xl:text-[16px] lg:text-[14px] md:text-[12px] font-medium cursor-pointer px-4 py-2 rounded-md hover:bg-amber-400 hover:underline transition-all flex items-center gap-2">
-                            <i class="fa-solid fa-envelope"></i>
-                            <a href="">Contact</a>
-                        </li>
+                <!-- Logo -->
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-cart-shopping text-3xl text-orange-600"></i>
+                    <span class="text-orange-600 font-bold text-2xl md:text-3xl">Online</span>
+                    <span class="font-bold text-2xl md:text-3xl dark:text-white">Store</span>
+                </div>
 
-                        <li class="xl:text-[16px] lg:text-[14px] md:text-[12px] font-medium cursor-pointer px-4 py-2 rounded-md hover:bg-amber-400 hover:underline transition-all flex items-center gap-2">
-                            <i class="fa-solid fa-user"></i></i>
-                            <a href="">Sign Up</a>
-                        </li>
-                        <li class="xl:text-[16px] lg:text-[14px] md:text-[12px] font-medium cursor-pointer px-4 py-2 rounded-md hover:bg-amber-400 hover:underline transition-all flex items-center gap-2 ">
-                            <!-- <i class="fa-solid fa-sun"></i></i> -->
-                             <i class="fa-solid fa-moon"></i>
-                    
-                        </li>
+                <!-- Right buttons -->
+                <div class="flex items-center gap-3">
+
+                    <!-- Mobile dark toggle -->
+                    <button class="buttonToggle p-2 text-xl rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 dark:text-white md:hidden">
+                        <i class="iconChange fa-solid fa-moon"></i>
+                    </button>
+
+                    <!-- Mobile menu -->
+                    <button data-collapse-toggle="navbar-default" class="md:hidden text-xl">
+                        <i class="dark:text-white fa-solid fa-bars"></i>
+                    </button>
+
+                </div>
+
+                <!-- Nav -->
+                <menu class="hidden w-full md:block md:w-auto" id="navbar-default">
+                    <ul class="p-2 flex flex-col md:flex-row md:p-0  gap-2">
+
+                        <li><a href="#" class="px-3 py-2 hover:bg-amber-400 rounded flex items-center gap-2 dark:text-white"><i class="fa-solid fa-house"></i> Home</a></li>
+
+                        <li><a href="#" class="px-3 py-2 hover:bg-amber-400 rounded flex items-center  gap-2 dark:text-white"><i class="fa-solid fa-list"></i> Product List</a></li>
+
+                        <li><a href="#" class="px-3 py-2 hover:bg-amber-400 rounded flex items-center gap-2 dark:text-white"><i class="fa-solid fa-box"></i> Categories</a></li>
+
+                        <li><a href="#" class="px-3 py-2 hover:bg-amber-400 rounded flex items-center gap-2 dark:text-white"><i class="fa-solid fa-circle-info"></i> About</a></li>
+
+                        <li><a href="#" class="px-3 py-2 hover:bg-amber-400 rounded flex items-center gap-2 dark:text-white"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+
+                        <li><a href="#" class="px-3 py-2 hover:bg-amber-400 rounded flex items-center gap-2 dark:text-white">
+                            Login <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                        </a></li>
+
+                        <!-- Desktop dark toggle -->
+                        <button class="buttonToggle hidden md:block p-2 text-xl rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 dark:text-white">
+                            <i class=" iconChange fa-solid fa-moon"></i>
+                        </button>
 
                     </ul>
-            </menu>
-              
-            </header>
-        </section>
+                </menu>
 
-        <!-- hero section -->
-       <section class="w-full bg-gradient-to-r from-blue-200 to-pink-400 py-10">
-    <div id="default-carousel" class="relative w-full" data-carousel="slide">
+            </div>
+        </header>
+    </section>
+    <!-- End of section header -->
 
-        <!-- Slides -->
-        <div class="relative h-[500px] overflow-hidden rounded-lg ">
-
+    <!-- Baner -->
+    <section class="container mx-auto">
+        <div id="default-carousel" class="relative w-full" data-carousel="slide">
+            <!-- Carousel wrapper -->
+            <div class="relative h-screen overflow-hidden rounded-lg">
             <!-- Slide 1 -->
-            <div class="hidden duration-700 ease-in-out grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 items-center px-10" data-carousel-item>
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <div class="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 h-full items-center p-6">
 
-                <!-- Text -->
-                <div class="space-y-4 ">
-                    <h1 class="text-3xl md:text-5xl font-bold text-gray-800">
-                        Welcome to our <span class="text-blue-600">Store</span>
+                <div class="space-y-4">
+                    <h1 class="text-4xl font-bold  dark:text-yellow-500">
+                    Welcome to <span class="text-blue-500">our store</span>
                     </h1>
 
                     <div class="flex gap-4">
-                        <button class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-transparent border hover:border-green-600 hover:text-black">
-                            Buy Now
-                        </button>
-
-                        <button class="border border-black px-6 py-3 rounded-lg hover:bg-blue-600 hover:text-white transition">
-                            Shop All
-                        </button>
+                    <button class="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+                        Shop Now
+                    </button>
+                    <button class="px-5 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition">
+                        Shop All
+                    </button>
                     </div>
                 </div>
-
-                <!-- Image -->
-                <div class="flex justify-center">
-                    <img src="https://static.vecteezy.com/system/resources/previews/047/249/338/original/sweater-shirt-hoodie-isolated-png.png" 
-                        alt="Hoodie"
-                        class="w-[80%] object-contain">
+                <img src="./img/storepng.png" class="w-full" alt="">
                 </div>
-
             </div>
-            <!-- Slide 2 -->
-            <div class="hidden duration-700 ease-in-out grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 items-center px-10" data-carousel-item>
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <div class="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 h-full items-center p-6">
 
-                <!-- Text -->
-                <div class="space-y-4 ">
-                    <h1 class="text-3xl md:text-5xl font-bold text-gray-800">
-                        Welcome to our <span class="text-blue-600">Store</span>
+                <div class="space-y-4">
+                    <h1 class="text-4xl font-bold  dark:text-yellow-500">
+                    Welcome to <span class="text-blue-500">our store</span>
                     </h1>
 
                     <div class="flex gap-4">
-                        <button class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-transparent border hover:border-green-600 hover:text-black">
-                            Buy Now
-                        </button>
-
-                        <button class="border border-black px-6 py-3 rounded-lg hover:bg-blue-600 hover:text-white transition">
-                            Shop All
-                        </button>
+                    <button class="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+                        Shop Now
+                    </button>
+                    <button class="px-5 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition">
+                        Shop All
+                    </button>
                     </div>
                 </div>
-
-                <!-- Image -->
-                <div class="flex justify-center">
-                    <img src="https://static.vecteezy.com/system/resources/previews/047/249/338/original/sweater-shirt-hoodie-isolated-png.png" 
-                        alt="Hoodie"
-                        class="w-[80%] object-contain">
+                <img src="./img/remove bg.png" class="w-full" alt="">
                 </div>
-
             </div>
-
-          
+            </div>
+    </section>
+    <!-- End of section banner -->
+    <!-- main section -->
+    <section class="w-full">
+        <main class="container mx-auto py-10">
+            <h1 class="text-center text-3xl font-bold underline dark:text-white"> Product Category </h1>
+            <!-- Tabs -->
+        <div class="flex justify-center gap-4 mt-6 flex-wrap">
+        <!-- ACTIVE -->
+            <button class="tab-btn px-5 py-2 rounded-full bg-blue-600 text-white dark:bg-blue-500  dark:text-white" data-tab="all">All Category</button>
+            <!-- NORMAL -->
+            <button class="tab-btn px-5 py-2 rounded-full text-gray-700 bg-gray-100 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700  hover:bg-gray-200 transition" data-tab="electronics"> Electronics </button>
+            <button class="tab-btn px-5 py-2 rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"data-tab="fashion"> Fashion </button>
+            <button class="tab-btn px-5 py-2 rounded-full text-gray-700 bg-gray-100  dark:bg-gray-800 hover:bg-gray-200 dark:text-gray-200 dark:hover:bg-gray-700"data-tab="beauty"> Beauty & Personal Care</button>
+            <button class="tab-btn px-5 py-2 rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"data-tab="sport"> Sports & Outdoor  </button>
         </div>
-    </div>
-</section>
-    </div>
-</body>
+            <!-- Content -->
+            <div class="mt-10 ">
+            <div class="tab-content" id="all"> 
+                <div class=" grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 ">
+                    <!-- Cards -->
+                    <div class="shadow-lg p-3 dark:bg-white rounded-lg h-auto border-2 border-black hover:bg-blue-200 transition duration-300">
+                    <!-- Image -->
+                    <div class="w-full h-48 rounded-md overflow-hidden bg-slate-200 group">
+                        <img 
+                            class="w-full h-full object-cover transition duration-300 hover:scale-100"
+                            src="https://ipowerresale.com/cdn/shop/files/media_41ccd337-36cf-4269-ad89-bdabf5325167.png?v=1766096143" 
+                            alt="Macbook Air M2">
+                    </div>
+                         <!-- Content -->
+                    <div class="mt-4 space-y-2">
+                        <h1 class="text-lg font-semibold text-gray-800">MacBook Air M2 </h1>
+                        <p class="text-sm text-gray-500">Super fast Apple M2 chip with sleek design.</p>
+                        <div >
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                        </div>
+                        <p class="text-xl font-bold text-pink-500"> $999</p>
+                        <div class=" w-full flex justify-end">
+                            <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
+                        </div>
+                    </div>
+                    </div>
+                  <!-- End cards -->
+                    <!-- Cards -->
+                    <div class="shadow-lg p-3 dark:bg-white rounded-lg h-auto border-2 border-black hover:bg-blue-200 transition duration-300">
+                    <!-- Image -->
+                    <div class="w-full h-48 rounded-md overflow-hidden bg-slate-200 group">
+                        <img 
+                            class="w-full h-full object-cover transition duration-300 hover:scale-100"
+                            src="https://www.pngall.com/wp-content/uploads/20/iPhone-17-Pro-Max-Concept-Art-PNG.png" 
+                            alt="iPhone 17">
+                    </div>
+                         <!-- Content -->
+                    <div class="mt-4 space-y-2">
+                        <h1 class="text-lg font-semibold text-gray-800">Iphone 17 promax </h1>
+                        <p class="text-sm text-gray-500">Super fast Apple M2 chip with sleek design.</p>
+                        <div >
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                        </div>
+                        <p class="text-xl font-bold text-pink-500"> $1500</p>
+                        <div class=" w-full flex justify-end">
+                            <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
+                        </div>
+                    </div>
+                    </div>
+                  <!-- End cards -->
+                    <!-- Cards -->
+                    <div class="shadow-lg p-3 dark:bg-white rounded-lg h-auto border-2 border-black hover:bg-blue-200 transition duration-300">
+                    <!-- Image -->
+                    <div class="w-full h-48 rounded-md overflow-hidden bg-slate-200 group">
+                        <img 
+                            class="w-full h-full object-cover transition duration-300 hover:scale-100"
+                            src="https://elyamamastore.com/cdn/shop/files/ASUS-ROG-Strix-G16-G615LW-RV132W-Ultimate-Gaming-Powerhouse-with-RTX-5080-Elyamama-38414210564327.png?v=1764073404&width=1000" 
+                            alt="Macbook Air M2">
+                    </div>
+                         <!-- Content -->
+                    <div class="mt-4 space-y-2">
+                        <h1 class="text-lg font-semibold text-gray-800">Aus gaming latop  </h1>
+                        <p class="text-sm text-gray-500">Super fast gaming chip with sleek design.</p>
+                        <div >
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                        </div>
+                        <p class="text-xl font-bold text-pink-500"> $2500</p>
+                        <div class=" w-full flex justify-end">
+                            <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
+                        </div>
+                    </div>
+                    </div>
+                  <!-- End cards -->
+                    <!-- Cards -->
+                    <div class="shadow-lg p-3 dark:bg-white rounded-lg h-auto border-2 border-black hover:bg-blue-200 transition duration-300">
+                    <!-- Image -->
+                    <div class="w-full h-48 rounded-md overflow-hidden bg-slate-200 group">
+                        <img 
+                            class="w-full h-full object-cover transition duration-300 hover:scale-100"
+                            src="https://elyamamastore.com/cdn/shop/files/ASUS-ROG-Strix-G16-G615LW-RV132W-Ultimate-Gaming-Powerhouse-with-RTX-5080-Elyamama-38414210564327.png?v=1764073404&width=1000" 
+                            alt="Macbook Air M2">
+                    </div>
+                         <!-- Content -->
+                    <div class="mt-4 space-y-2">
+                        <h1 class="text-lg font-semibold text-gray-800">MacBook Air M2 </h1>
+                        <p class="text-sm text-gray-500">Super fast Apple M2 chip with sleek design.</p>
+                        <div >
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                        </div>
+                        <p class="text-xl font-bold text-pink-500"> $999</p>
+                        <div class=" w-full flex justify-end">
+                            <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
+                        </div>
+                    </div>
+                    </div>
+                  <!-- End cards -->
+                </div>
+            </div>
+            <div class="tab-content hidden" id="electronics"> </div>
+            <div class="tab-content hidden" id="pizza"></div>
+            <div class="tab-content hidden" id="pasta"></div>
+            <div class="tab-content hidden" id="fries"></div>
+
+            </div>
+
+        </main>
+    </section>
+
+</div>
+
+<!-- JS -->
+
+<script>
+const buttons = document.querySelectorAll(".buttonToggle"); // use class
+const icons = document.querySelectorAll(".iconChange");
+
+// Click event for ALL buttons
+buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+
+        document.documentElement.classList.toggle("dark");
+
+        const isDark = document.documentElement.classList.contains("dark");
+
+        localStorage.theme = isDark ? "dark" : "light";
+
+        icons.forEach(icon => {
+            icon.classList.toggle("fa-moon", !isDark);
+            icon.classList.toggle("fa-sun", isDark);
+        });
+    });
+});
+
+// Load saved theme on page start
+if (localStorage.theme === "dark") {
+    document.documentElement.classList.add("dark");
+
+    icons.forEach(icon => {
+        icon.classList.remove("fa-moon");
+        icon.classList.add("fa-sun");
+    });
+}
+</script>
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
-<script src="https://cdn.tailwindcss.com"></script>
+
+</body>
 </html>
