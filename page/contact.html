@@ -75,110 +75,103 @@
     </section>
     <!-- End of section header -->
    <!-- Contact page -->
-         <section class="w-full min-h-screen bg  dark:from-gray-900 dark:to-gray-800">
-            <div class="container mx-auto py-12 px-4">
+         <section class=" dark:from-gray-900 dark:to-gray-800 mt-10">
+          <div class="container mx-auto px-4 py-10">
 
-                <!-- Title -->
-                <h1 class="text-4xl font-bold text-center mb-10 text-gray-800 dark:text-white">
-                Contact Us
-                </h1>
+    <!-- Title -->
+    <h1 class="text-4xl font-bold text-center mb-10 text-gray-800 dark:text-white">
+        Contact Us
+    </h1>
 
-                <div class="grid lg:grid-cols-2 gap-10">
+    <!-- GRID WRAPPER (FIXED) -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
 
-                <!-- LEFT: Info + Map -->
-                <div class="space-y-6">
+        <!-- LEFT: Info + Map -->
+        <div class="space-y-6">
 
-                    <!-- Info Card -->
-                    <div class="bg-white/70 backdrop-blur-lg dark:bg-gray-800/70 p-8 rounded-2xl shadow-xl">
+            <!-- Info Card -->
+            <div class="bg-white/70 backdrop-blur-lg dark:bg-gray-800/70 p-8 rounded-2xl shadow-xl">
 
-                    <h2 class="text-2xl font-semibold text-gray-700 dark:text-white mb-4">
-                        Get in Touch
-                    </h2>
+                <h2 class="text-2xl font-semibold text-gray-700 dark:text-white mb-4">
+                    Get in Touch
+                </h2>
 
-                    <p class="text-gray-500 dark:text-gray-300 mb-6">
-                        We’d love to hear from you. Send us a message and we’ll respond as soon as possible.
-                    </p>
+                <p class="text-gray-500 dark:text-gray-300 mb-6">
+                    We’d love to hear from you. Send us a message and we’ll respond as soon as possible.
+                </p>
 
-                    <div class="space-y-3 text-gray-600 dark:text-gray-300">
-                        <p>📍 Phnom Penh, Cambodia</p>
-                        <p>📞 +855 123 456 789</p>
-                        <p>📧 support@yourshop.com</p>
-                    </div>
-
-                    <!-- Social -->
-                    <div class="flex gap-3 mt-6">
-                        <a href="#" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:scale-105 transition">Facebook</a>
-                        <a href="#" class="px-4 py-2 bg-pink-500 text-white rounded-lg hover:scale-105 transition">Instagram</a>
-                        <a href="#" class="px-4 py-2 bg-gray-700 text-white rounded-lg hover:scale-105 transition">Telegram</a>
-                    </div>
-
-                    </div>
-
-                    <!-- Google Map -->
-                    <div class="rounded-2xl overflow-hidden shadow-lg">
-                    <iframe 
-                        class="w-full h-64"
-                        src="https://maps.google.com/maps?q=phnom%20penh&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                        loading="lazy">
-                    </iframe>
-                    </div>
-
+                <div class="space-y-3 text-gray-600 dark:text-gray-300">
+                    <p>📍 Phnom Penh, Cambodia</p>
+                    <p>📞 +855 123 456 789</p>
+                    <p>📧 support@yourshop.com</p>
                 </div>
 
-                <!-- RIGHT: Form -->
-                <div class="bg-white/70 backdrop-blur-lg dark:bg-gray-800/70 p-8 rounded-2xl shadow-xl">
-
-                    <!-- SUCCESS MESSAGE (NO JS) -->
-                    <!-- Show this after redirect like: contact.php?success=1 -->
-                    <div class="mb-4 p-3 bg-green-100 text-green-700 rounded-lg hidden">
-                    ✅ Message sent successfully!
-                    </div>
-
-                    <form action="contact.php" method="POST" class="space-y-5">
-
-                    <!-- Name -->
-                    <div>
-                        <label class="block mb-1 text-gray-600 dark:text-gray-300">Full Name</label>
-                        <input type="text" name="name" required
-                        class="w-full px-4 py-2 border rounded-lg outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-700 dark:text-white">
-                    </div>
-
-                    <!-- Email -->
-                    <div>
-                        <label class="block mb-1 text-gray-600 dark:text-gray-300">Email</label>
-                        <input type="email" name="email" required
-                        class="w-full px-4 py-2 border rounded-lg outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-700 dark:text-white">
-                    </div>
-
-                    <!-- Subject -->
-                    <div>
-                        <label class="block mb-1 text-gray-600 dark:text-gray-300">Subject</label>
-                        <input type="text" name="subject"
-                        class="w-full px-4 py-2 border rounded-lg outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-700 dark:text-white">
-                    </div>
-
-                    <!-- Message -->
-                    <div>
-                        <label class="block mb-1 text-gray-600 dark:text-gray-300">Message</label>
-                        <textarea name="message" rows="5" required
-                        class="w-full px-4 py-2 border rounded-lg outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-700 dark:text-white"></textarea>
-                    </div>
-
-                    <!-- Button -->
-                    <button type="submit"
-                        class="w-full py-3 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 hover:scale-[1.02] transition">
-                        Send Message
-                    </button>
-
-                    </form>
-
-                </div>
-
+                <!-- Social -->
+                <div class="flex flex-wrap gap-3 mt-6">
+                    <a href="#" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:scale-105 transition">Facebook</a>
+                    <a href="#" class="px-4 py-2 bg-pink-500 text-white rounded-lg hover:scale-105 transition">Instagram</a>
+                    <a href="#" class="px-4 py-2 bg-gray-700 text-white rounded-lg hover:scale-105 transition">Telegram</a>
                 </div>
 
             </div>
-        </section>
 
+            <!-- Map -->
+            <div class="rounded-2xl overflow-hidden shadow-lg">
+                <iframe
+                    class="w-full h-64 md:h-80"
+                    src="https://maps.google.com/maps?q=phnom%20penh&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                    loading="lazy">
+                </iframe>
+            </div>
+
+        </div>
+
+        <!-- RIGHT: Form -->
+        <div class="bg-white/70 backdrop-blur-lg dark:bg-gray-800/70 p-8 rounded-2xl shadow-xl">
+
+            <!-- SUCCESS MESSAGE -->
+            <div class="mb-4 p-3 bg-green-100 text-green-700 rounded-lg hidden">
+                ✅ Message sent successfully!
+            </div>
+
+            <form action="contact.php" method="POST" class="space-y-5">
+
+                <div>
+                    <label class="block mb-1 text-gray-600 dark:text-gray-300">Full Name</label>
+                    <input type="text" name="name" required
+                        class="w-full px-4 py-2 border rounded-lg outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-700 dark:text-white">
+                </div>
+
+                <div>
+                    <label class="block mb-1 text-gray-600 dark:text-gray-300">Email</label>
+                    <input type="email" name="email" required
+                        class="w-full px-4 py-2 border rounded-lg outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-700 dark:text-white">
+                </div>
+
+                <div>
+                    <label class="block mb-1 text-gray-600 dark:text-gray-300">Subject</label>
+                    <input type="text" name="subject"
+                        class="w-full px-4 py-2 border rounded-lg outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-700 dark:text-white">
+                </div>
+
+                <div>
+                    <label class="block mb-1 text-gray-600 dark:text-gray-300">Message</label>
+                    <textarea name="message" rows="5" required
+                        class="w-full px-4 py-2 border rounded-lg outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-700 dark:text-white"></textarea>
+                </div>
+
+                <button type="submit"
+                    class="w-full py-3 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 hover:scale-[1.02] transition">
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+          </div>
+        </section>
 
   <!-- footer -->
          <section>
