@@ -3,25 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Store</title>
+    <title>Online Store | Premium Shopping</title>
+    <!-- Tailwind CSS v3 + Flowbite + Font Awesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
-        tailwind = {
-            darkMode: 'class'
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
         }
     </script>
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="stylesheet" href="./src/style.css">
-   
-
+    <style>
+        .img-hover { transition: transform 0.3s ease; }
+        .img-hover:hover { transform: scale(1.05); }
+        .carousel-slide { transition: opacity 0.7s ease-in-out; }
+    </style>
 </head>
+<body class="bg-white dark:bg-gray-900 transition-all duration-300 font-sans">
 
-<body class="bg-white dark:bg-gray-900 transition-all duration-300">
-
-<div class="w-full p-4">
-    <!-- Header -->
-    <section class=" w-full sticky top-0 z-50">
-        <header class=" container mx-auto head-blur bg-white dark:bg-gray-900 p-2 shadow-lg rounded-lg
+<div class="w-full">
+    <section class=" w-full sticky top-0 z-50 ">
+        <header class=" container mx-auto  bg-whitedark dark:bg-gray-900  p-2 shadow-lg rounded-lg
                transition-all duration-300">
             <div class="py-4 flex flex-wrap justify-between items-center">
                 <!-- Logo -->
@@ -48,17 +60,17 @@
                 <menu class="hidden w-full md:block md:w-auto" id="navbar-default">
                     <ul class="p-2 flex flex-col md:flex-row md:p-0  gap-2">
 
-                        <li><a href="../index.html" class="px-3 py-2 hover:bg-amber-400 rounded flex items-center gap-2 dark:text-white"><img class=" w-4 h-4" src="../img/house.png" alt=""> Home</a></li>
+                        <li><a href="../index.html" class="px-3 py-2 hover:bg-orange-300 rounded flex items-center gap-2 dark:text-white"><img class=" w-4 h-4" src="../img/house.png" alt="" > Home</a></li>
 
-                        <li><a href="../page/shop.html" class="px-3 py-2 hover:bg-amber-400 rounded flex items-center  gap-2 dark:text-white"><img class="w-4 h-4 " src="../img/add.png" alt=""> Shop</a></li>
+                        <li><a href="../page/shop.html" class="px-3 py-2 hover:bg-orange-300 rounded flex items-center  gap-2 dark:text-white"><img class="w-4 h-4 " src="../img/add.png" alt=""> Shop</a></li>
 
-                        <li><a href="../page/category.html" class="px-3 py-2 hover:bg-amber-400 rounded flex items-center gap-2 dark:text-white"><img class="w-4 h-4 " src="../img/categories.png" alt=""> Categories</a></li>
+                        <li><a href="../page/category.html" class="px-3 py-2 hover:bg-orange-300 rounded flex items-center gap-2 dark:text-white"><img class="w-4 h-4 " src="../img/categories.png" alt=""> Categories</a></li>
 
-                        <li><a href="../page/about.html" class="px-3 py-2 hover:bg-amber-400 rounded flex items-center gap-2 dark:text-white"><img class="w-4 h-4 " src="../img/info.png" alt=""> About</a></li>
+                        <li><a href="../page/about.html" class="px-3 py-2 hover:bg-orange-300 rounded flex items-center gap-2 dark:text-white"><img class="w-4 h-4 " src="../img/info.png" alt=""> About</a></li>
 
-                        <li><a href="#" class="px-3 py-2 hover:bg-amber-400 rounded flex items-center gap-2 dark:text-white"><img class="w-4 h-4" src="../img/phone-chat.png" alt=""> Contact</a></li>
+                        <li><a href="../page/category.html" class="px-3 py-2 hover:bg-orange-300 rounded flex items-center gap-2 dark:text-white"><img class="w-4 h-4" src="../img/phone-chat.png" alt=""> Contact</a></li>
 
-                        <li><a href="../page/login.html" class="px-3 py-2 hover:bg-amber-400 rounded flex items-center gap-2 dark:text-white">
+                        <li><a href="../page/login.html" class="px-3 py-2 hover:bg-orange-300 rounded flex items-center gap-2 dark:text-white">
                             Login <img class="w-4 h-4" src="../img/enter.png" alt="">
                         </a></li>
 
@@ -73,9 +85,12 @@
             </div>
         </header>
     </section>
-    <!-- End of section header -->
-   <!-- Contact page -->
-         <section class=" dark:from-gray-900 dark:to-gray-800 mt-10">
+
+ 
+    <!-- Main Content -->
+   <main>
+        <!-- Contact page -->
+         <section class=" dark:from-gray-900 dark:to-gray-800">
           <div class="container mx-auto px-4 py-10">
 
     <!-- Title -->
@@ -118,7 +133,7 @@
             <!-- Map -->
             <div class="rounded-2xl overflow-hidden shadow-lg">
                 <iframe
-                    class="w-full h-64 md:h-80"
+                    class="w-full h-48 md:h-80"
                     src="https://maps.google.com/maps?q=phnom%20penh&t=&z=13&ie=UTF8&iwloc=&output=embed"
                     loading="lazy">
                 </iframe>
@@ -173,7 +188,7 @@
           </div>
         </section>
 
-  <!-- footer -->
+        <!-- footer -->
          <section>
             <footer class="bg-gray-100 dark:bg-gray-900 mt-16">
             <div class="container mx-auto px-6 py-12">
@@ -279,46 +294,32 @@
             </div>
          </footer>
          </section>
+    </main>
 </div>
 
-<!-- JS -->
-
+<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
 <script>
-const buttons = document.querySelectorAll(".buttonToggle"); // use class
-const icons = document.querySelectorAll(".iconChange");
-
-// Click event for ALL buttons
-buttons.forEach(btn => {
-    btn.addEventListener("click", () => {
-
-        document.documentElement.classList.toggle("dark");
-
-        const isDark = document.documentElement.classList.contains("dark");
-
-        localStorage.theme = isDark ? "dark" : "light";
-
-        icons.forEach(icon => {
-            icon.classList.toggle("fa-moon", !isDark);
-            icon.classList.toggle("fa-sun", isDark);
+    const buttons = document.querySelectorAll(".buttonToggle");
+    const icons = document.querySelectorAll(".iconChange");
+    buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            document.documentElement.classList.toggle("dark");
+            const isDark = document.documentElement.classList.contains("dark");
+            localStorage.theme = isDark ? "dark" : "light";
+            icons.forEach(icon => {
+                icon.classList.toggle("fa-moon", !isDark);
+                icon.classList.toggle("fa-sun", isDark);
+            });
         });
     });
-});
-
-// Load saved theme on page start
-if (localStorage.theme === "dark") {
-    document.documentElement.classList.add("dark");
-
-    icons.forEach(icon => {
-        icon.classList.remove("fa-moon");
-        icon.classList.add("fa-sun");
-    });
-}
+    if (localStorage.theme === "dark") {
+        document.documentElement.classList.add("dark");
+        icons.forEach(icon => {
+            icon.classList.remove("fa-moon");
+            icon.classList.add("fa-sun");
+        });
+    }
+    AOS.init({ duration: 800, once: true });
 </script>
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
-
 </body>
-<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
 </html>

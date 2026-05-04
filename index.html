@@ -3,27 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Store</title>
-    <script>
-        tailwind = {
-            darkMode: 'class'
-        }
-    </script>
+    <title>Online Store | Premium Shopping</title>
+    <!-- Tailwind CSS v3 + Flowbite + Font Awesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="stylesheet" href="./src/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-   
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .img-hover { transition: transform 0.3s ease; }
+        .img-hover:hover { transform: scale(1.05); }
+        .carousel-slide { transition: opacity 0.7s ease-in-out; }
+    </style>
 </head>
+<body class="bg-white dark:bg-gray-900 transition-all duration-300 font-sans">
 
-<body class="bg-white dark:bg-gray-900 transition-all duration-300">
-
-<div class="w-full p-4">
+<div class="w-full">
     <!-- Header -->
-    <section class=" w-full sticky top-0 z-50">
-        <header class=" container mx-auto head-blur bg-white dark:bg-gray-900 p-2 shadow-lg rounded-lg
+     <section class=" w-full sticky top-0 z-50 ">
+        <header class=" container mx-auto  bg-whitedark dark:bg-gray-900   p-2 shadow-lg rounded-lg
                transition-all duration-300">
             <div class="py-4 flex flex-wrap justify-between items-center">
                 <!-- Logo -->
@@ -50,7 +61,7 @@
                 <menu class="hidden w-full md:block md:w-auto" id="navbar-default">
                     <ul class="p-2 flex flex-col md:flex-row md:p-0  gap-2">
 
-                        <li><a href="./page/category.html" class="px-3 py-2 hover:bg-orange-300 rounded flex items-center gap-2 dark:text-white "><img class=" w-4 h-4" src="./img/house.png" alt=""> Home</a></li>
+                        <li><a href="./page/category.html" class="px-3 py-2 hover:bg-orange-300 rounded flex items-center gap-2 dark:text-white"><img class=" w-4 h-4" src="./img/house.png" alt="" > Home</a></li>
 
                         <li><a href="./page/shop.html" class="px-3 py-2 hover:bg-orange-300 rounded flex items-center  gap-2 dark:text-white"><img class="w-4 h-4 " src="./img/add.png" alt=""> Shop</a></li>
 
@@ -75,121 +86,131 @@
             </div>
         </header>
     </section>
-    <!-- End of section header -->
 
-    <!-- Baner -->
-    <section class="container mx-auto">
-        <div id="default-carousel" class="relative w-full " data-carousel="slide"  data-aos="fade-down">
-            <!-- Carousel wrapper -->
-            <div class="relative h-screen overflow-hidden rounded-lg">
-            <!-- Slide 1 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <div class="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 h-full items-center p-6">
-
-                <div class="space-y-4">
-                    <h1 class="text-4xl font-bold  dark:text-yellow-500">
-                    Welcome to <span class="text-blue-500">our store</span>
-                    </h1>
-                    <div class=" rounded-lg">
-                        <h1 class="text-3xl font-bold text-yellow-400 dark:text-white">Laptop</h1>
-                        <p class="text-md text-gray-500 mt-2">
-                            Browse powerful laptops from top brands at the best prices.
-                        </p>
-                    </div>
-
-                    <div class="flex gap-4">
-                    <button class="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-                        Shop Now
-                    </button>
-                    <button class="px-5 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition">
-                        Shop All
-                    </button>
-                    </div>
-                </div>
-                <img src="https://pngfre.com/wp-content/uploads/laptop-png-from-pngfre-22.png" class="w-full" alt="">
-                </div>
-            </div>
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <div class="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 h-full items-center p-6">
-
-                <div class="space-y-4">
-                    <h1 class="text-4xl font-bold  dark:text-yellow-500">
-                    Welcome to <span class="text-blue-500">our store</span>
-                    </h1>
-                    <h1 class="text-3xl font-bold text-yellow-400 dark:text-white">
-                    Fashion Collection
-                    </h1>
-                    <p class="text-gray-500 mt-1">
-                    Discover trendy outfits, shoes, and accessories.
-                    </p>
-
-                    <div class="flex gap-4">
-                    <button class="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-                        Shop Now
-                    </button>
-                    <button class="px-5 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition">
-                        Shop All
-                    </button>
+    <!-- Improved Banner Carousel with Discounts -->
+    <section class="container mx-auto px-4  mt-4">
+        <div id="default-carousel" class="relative w-full" data-carousel="slide">
+            <div class="relative h-[85vh] min-h-[500px] lg:h-[80vh] overflow-hidden rounded-2xl shadow-2xl">
+                <!-- Slide 1 - Laptop 30% OFF -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <div class="w-full h-full bg-gradient-to-r from-purple-600 via-pink-500 to-red-500">
+                        <div class="grid lg:grid-cols-2 grid-cols-1 h-full items-center p-6 md:p-12">
+                            <div class="space-y-5 text-white" data-aos="fade-right">
+                                <div class="inline-flex items-center gap-2 bg-yellow-400 text-black px-4 py-2 rounded-full text-sm font-bold animate-pulse">
+                                    <i class="fas fa-bolt"></i> FLASH SALE <span class="bg-black/20 px-2 rounded-full">-30% OFF</span>
+                                </div>
+                                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold">Premium Laptops</h1>
+                                <p class="text-gray-100 text-lg">Powerful performance. Stunning design. Top brands at unbeatable prices.</p>
+                                <div class="flex items-center gap-4">
+                                    <span class="text-4xl font-bold">$699</span>
+                                    <span class="line-through text-gray-300 text-xl">$999</span>
+                                    <span class="bg-green-500 px-3 py-1 rounded-full text-sm">Save $300</span>
+                                </div>
+                                <div class="flex gap-4 pt-4">
+                                    <button class="px-6 py-3 bg-white text-gray-900 rounded-xl font-semibold hover:scale-105 transition flex items-center gap-2"><i class="fas fa-cart-shopping"></i> Shop Now</button>
+                                    <button class="px-6 py-3 border border-white rounded-xl hover:bg-white/10 transition flex items-center gap-2"><i class="fas fa-tag"></i> View Deals</button>
+                                </div>
+                            </div>
+                            <div class="flex justify-center" data-aos="fade-left">
+                                <img src="https://pngfre.com/wp-content/uploads/laptop-png-from-pngfre-22.png" class="w-full max-w-md object-contain drop-shadow-2xl img-hover" alt="Laptop">
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <img src="https://static.vecteezy.com/system/resources/thumbnails/047/249/331/small/sweater-shirt-hoodie-isolated-png.png" class="w-full" alt="">
-                </div>
-            </div>
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <div class="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 h-full items-center p-6">
-
-                <div class="space-y-4">
-                    <h1 class="text-4xl font-bold  dark:text-yellow-500">
-                    Welcome to <span class="text-blue-500">our store</span>
-                    </h1>
-                    <h1 class="text-3xl font-bold text-yellow-400 dark:text-white">
-                    Beauty & Skincare
-                    </h1>
-                    <p class="text-gray-500 mt-1">
-                    Discover skincare, makeup, and beauty essentials for your daily glow.
-                    </p>
-                                        <div class="flex gap-4">
-                    <button class="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-                        Shop Now
-                    </button>
-                    <button class="px-5 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition">
-                        Shop All
-                    </button>
+                <!-- Slide 2 - Fashion 50% OFF -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <div class="w-full h-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-700">
+                        <div class="grid lg:grid-cols-2 grid-cols-1 h-full items-center p-6 md:p-12">
+                            <div class="space-y-5 text-white" data-aos="fade-right">
+                                <div class="inline-flex items-center gap-2 bg-yellow-400 text-black px-4 py-2 rounded-full text-sm font-bold">
+                                    <i class="fas fa-fire"></i> MEGA SALE <span class="bg-black/20 px-2 rounded-full">-50% OFF</span>
+                                </div>
+                                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold">Fashion Collection</h1>
+                                <p class="text-gray-100 text-lg">Trendy outfits, shoes, and accessories for every style.</p>
+                                <div class="flex items-center gap-4">
+                                    <span class="text-4xl font-bold">$25</span>
+                                    <span class="line-through text-gray-300 text-xl">$50</span>
+                                    <span class="bg-green-500 px-3 py-1 rounded-full text-sm">Save $25</span>
+                                </div>
+                                <div class="flex gap-4 pt-4">
+                                    <button class="px-6 py-3 bg-white text-gray-900 rounded-xl font-semibold hover:scale-105 transition flex items-center gap-2"><i class="fas fa-bag-shopping"></i> Shop Now</button>
+                                    <button class="px-6 py-3 border border-white rounded-xl hover:bg-white/10 transition flex items-center gap-2"><i class="fas fa-eye"></i> Explore</button>
+                                </div>
+                            </div>
+                            <div class="flex justify-center" data-aos="fade-left">
+                                <img src="https://static.vecteezy.com/system/resources/thumbnails/047/249/331/small/sweater-shirt-hoodie-isolated-png.png" class="w-full max-w-md object-contain drop-shadow-2xl img-hover" alt="Fashion">
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <img src="https://static.vecteezy.com/system/resources/previews/058/267/064/non_2x/stunning-red-lipstick-in-a-splash-of-color-beauty-product-advertisement-free-png.png" class="w-full" alt="">
-                </div>
-            </div>
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <div class="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 h-full items-center p-6">
-
-                <div class="space-y-4">
-                    <h1 class="text-4xl font-bold  dark:text-yellow-500">
-                    Welcome to <span class="text-blue-500">our store</span>
-                    </h1>
-                    <h1 class="text-3xl font-bold text-yellow-400 dark:text-white">
-                    Shoes Collection
-                    </h1>
-                    <p class="text-gray-500 mt-1">
-                    Discover stylish and comfortable footwear for every occasion.
-                    </p>
-                    <div class="flex gap-4">
-                    <button class="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-                        Shop Now
-                    </button>
-                    <button class="px-5 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition">
-                        Shop All
-                    </button>
+                <!-- Slide 3 - Beauty BOGO -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <div class="w-full h-full bg-gradient-to-r from-rose-500 via-pink-500 to-red-600">
+                        <div class="grid lg:grid-cols-2 grid-cols-1 h-full items-center p-6 md:p-12">
+                            <div class="space-y-5 text-white" data-aos="fade-right">
+                                <div class="inline-flex items-center gap-2 bg-yellow-400 text-black px-4 py-2 rounded-full text-sm font-bold">
+                                    <i class="fas fa-gift"></i> BUY 1 GET 1 <span class="bg-black/20 px-2 rounded-full">FREE</span>
+                                </div>
+                                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold">Beauty & Skincare</h1>
+                                <p class="text-gray-100 text-lg">Glow every day with top beauty products and essentials.</p>
+                                <div class="flex items-center gap-4">
+                                    <span class="text-4xl font-bold">$19</span>
+                                    <span class="text-yellow-200">starting from</span>
+                                </div>
+                                <div class="flex gap-4 pt-4">
+                                    <button class="px-6 py-3 bg-white text-gray-900 rounded-xl font-semibold hover:scale-105 transition flex items-center gap-2"><i class="fas fa-heart"></i> Shop Now</button>
+                                    <button class="px-6 py-3 border border-white rounded-xl hover:bg-white/10 transition flex items-center gap-2"><i class="fas fa-percent"></i> Special Offer</button>
+                                </div>
+                            </div>
+                            <div class="flex justify-center" data-aos="fade-left">
+                                <img src="https://static.vecteezy.com/system/resources/previews/058/267/064/non_2x/stunning-red-lipstick-in-a-splash-of-color-beauty-product-advertisement-free-png.png" class="w-full max-w-md object-contain drop-shadow-2xl img-hover" alt="Beauty">
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <img src="https://static.vecteezy.com/system/resources/previews/021/275/823/non_2x/running-shoes-illustration-with-fire-shape-yellow-and-red-isolated-on-transparan-background-free-png.png" class="w-full" alt="">
+                <!-- Slide 4 - Shoes 40% OFF -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <div class="w-full h-full bg-gradient-to-r from-amber-500 via-orange-500 to-red-500">
+                        <div class="grid lg:grid-cols-2 grid-cols-1 h-full items-center p-6 md:p-12">
+                            <div class="space-y-5 text-white" data-aos="fade-right">
+                                <div class="inline-flex items-center gap-2 bg-yellow-400 text-black px-4 py-2 rounded-full text-sm font-bold">
+                                    <i class="fas fa-shoe-prints"></i> LIMITED TIME <span class="bg-black/20 px-2 rounded-full">-40% OFF</span>
+                                </div>
+                                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold">Shoes Collection</h1>
+                                <p class="text-gray-100 text-lg">Step up your style — sneakers, boots, running shoes for every occasion.</p>
+                                <div class="flex items-center gap-4">
+                                    <span class="text-4xl font-bold">$95</span>
+                                    <span class="line-through text-gray-300 text-xl">$159</span>
+                                    <span class="bg-green-500 px-3 py-1 rounded-full text-sm">Save $64</span>
+                                </div>
+                                <div class="flex gap-4 pt-4">
+                                    <button class="px-6 py-3 bg-white text-gray-900 rounded-xl font-semibold hover:scale-105 transition flex items-center gap-2"><i class="fas fa-running"></i> Shop Now</button>
+                                    <button class="px-6 py-3 border border-white rounded-xl hover:bg-white/10 transition flex items-center gap-2"><i class="fas fa-list-ul"></i> Collections</button>
+                                </div>
+                            </div>
+                            <div class="flex justify-center" data-aos="fade-left">
+                                <img src="https://static.vecteezy.com/system/resources/previews/021/275/823/non_2x/running-shoes-illustration-with-fire-shape-yellow-and-red-isolated-on-transparan-background-free-png.png" class="w-full max-w-md object-contain drop-shadow-2xl img-hover" alt="Shoes">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            </div>
+            <!-- Carousel Controls -->
+            <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group" data-carousel-prev>
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 hover:bg-white/50 dark:bg-gray-800/30 dark:hover:bg-gray-800/50 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                    <i class="fas fa-chevron-left text-white text-xl"></i>
+                </span>
+            </button>
+            <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group" data-carousel-next>
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 hover:bg-white/50 dark:bg-gray-800/30 dark:hover:bg-gray-800/50 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                    <i class="fas fa-chevron-right text-white text-xl"></i>
+                </span>
+            </button>
+        </div>
     </section>
-    <!-- End of section banner -->
-    <!-- main section -->
-    <main>
+
+    <!-- Main Content -->
+   <main>
         <!-- Category section -->
         <section class="w-full">
         <div class="container mx-auto py-10">
@@ -1879,48 +1900,31 @@
          </footer>
          </section>
     </main>
-
 </div>
 
-<!-- JS -->
-
+<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
 <script>
-const buttons = document.querySelectorAll(".buttonToggle"); // use class
-const icons = document.querySelectorAll(".iconChange");
-
-// Click event for ALL buttons
-buttons.forEach(btn => {
-    btn.addEventListener("click", () => {
-
-        document.documentElement.classList.toggle("dark");
-
-        const isDark = document.documentElement.classList.contains("dark");
-
-        localStorage.theme = isDark ? "dark" : "light";
-
-        icons.forEach(icon => {
-            icon.classList.toggle("fa-moon", !isDark);
-            icon.classList.toggle("fa-sun", isDark);
+    const buttons = document.querySelectorAll(".buttonToggle");
+    const icons = document.querySelectorAll(".iconChange");
+    buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            document.documentElement.classList.toggle("dark");
+            const isDark = document.documentElement.classList.contains("dark");
+            localStorage.theme = isDark ? "dark" : "light";
+            icons.forEach(icon => {
+                icon.classList.toggle("fa-moon", !isDark);
+                icon.classList.toggle("fa-sun", isDark);
+            });
         });
     });
-});
-
-// Load saved theme on page start
-if (localStorage.theme === "dark") {
-    document.documentElement.classList.add("dark");
-
-    icons.forEach(icon => {
-        icon.classList.remove("fa-moon");
-        icon.classList.add("fa-sun");
-    });
-}
+    if (localStorage.theme === "dark") {
+        document.documentElement.classList.add("dark");
+        icons.forEach(icon => {
+            icon.classList.remove("fa-moon");
+            icon.classList.add("fa-sun");
+        });
+    }
+    AOS.init({ duration: 800, once: true });
 </script>
-
-
 </body>
-<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
-<script>
-  AOS.init();
-</script>
 </html>

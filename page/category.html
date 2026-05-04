@@ -3,25 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Store</title>
+    <title>Online Store | Premium Shopping</title>
+    <!-- Tailwind CSS v3 + Flowbite + Font Awesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
-        tailwind = {
-            darkMode: 'class'
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
         }
     </script>
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="stylesheet" href="./src/style.css">
-   
-
+    <style>
+        .img-hover { transition: transform 0.3s ease; }
+        .img-hover:hover { transform: scale(1.05); }
+        .carousel-slide { transition: opacity 0.7s ease-in-out; }
+    </style>
 </head>
+<body class="bg-white dark:bg-gray-900 transition-all duration-300 font-sans">
 
-<body class="bg-white dark:bg-gray-900 transition-all duration-300">
-
-<div class="w-full p-4">
+<div class="w-full">
     <!-- Header -->
-    <section class=" w-full sticky top-0 z-50">
-        <header class=" container mx-auto head-blur bg-white dark:bg-gray-900 p-2 shadow-lg rounded-lg
+     <section class=" w-full sticky top-0 z-50 ">
+        <header class=" container mx-auto  bg-whitedark dark:bg-gray-900  p-2 shadow-lg rounded-lg
                transition-all duration-300">
             <div class="py-4 flex flex-wrap justify-between items-center">
                 <!-- Logo -->
@@ -48,17 +61,17 @@
                 <menu class="hidden w-full md:block md:w-auto" id="navbar-default">
                     <ul class="p-2 flex flex-col md:flex-row md:p-0  gap-2">
 
-                        <li><a href="../index.html" class="px-3 py-2 hover:bg-amber-400 rounded flex items-center gap-2 dark:text-white  "><img class=" w-4 h-4" src="../img/house.png" alt=""> Home</a></li>
+                        <li><a href="" class="px-3 py-2 hover:bg-orange-300 rounded flex items-center gap-2 dark:text-white"><img class=" w-4 h-4" src="../img/house.png" alt="" > Home</a></li>
 
-                        <li><a href="../page/shop.html" class="px-3 py-2 hover:bg-amber-400 rounded flex items-center  gap-2 dark:text-white"><img class="w-4 h-4 " src="../img/add.png" alt=""> Shop</a></li>
+                        <li><a href="../index.html" class="px-3 py-2 hover:bg-orange-300 rounded flex items-center  gap-2 dark:text-white"><img class="w-4 h-4 " src="../img/add.png" alt=""> Shop</a></li>
 
-                        <li><a href="../page/category.html" class="px-3 py-2 hover:bg-amber-400 rounded flex items-center gap-2 dark:text-white"><img class="w-4 h-4 " src="../img/categories.png" alt=""> Categories</a></li>
+                        <li><a href="../page/shop.html" class="px-3 py-2 hover:bg-orange-300 rounded flex items-center gap-2 dark:text-white"><img class="w-4 h-4 " src="../img/categories.png" alt=""> Categories</a></li>
 
-                        <li><a href="../page/about.html" class="px-3 py-2 hover:bg-amber-400 rounded flex items-center gap-2 dark:text-white"><img class="w-4 h-4 " src="../img/info.png" alt=""> About</a></li>
+                        <li><a href="../page/about.html" class="px-3 py-2 hover:bg-orange-300 rounded flex items-center gap-2 dark:text-white"><img class="w-4 h-4 " src="../img/info.png" alt=""> About</a></li>
 
-                        <li><a href="../page/contact.html" class="px-3 py-2 hover:bg-amber-400 rounded flex items-center gap-2 dark:text-white"><img class="w-4 h-4" src="../img/phone-chat.png" alt=""> Contact</a></li>
+                        <li><a href="../page/contact.html" class="px-3 py-2 hover:bg-orange-300 rounded flex items-center gap-2 dark:text-white"><img class="w-4 h-4" src="../img/phone-chat.png" alt=""> Contact</a></li>
 
-                        <li><a href="../page/login.html" class="px-3 py-2 hover:bg-amber-400 rounded flex items-center gap-2 dark:text-white">
+                        <li><a href="../page/login.html" class="px-3 py-2 hover:bg-orange-300 rounded flex items-center gap-2 dark:text-white">
                             Login <img class="w-4 h-4" src="../img/enter.png" alt="">
                         </a></li>
 
@@ -73,135 +86,158 @@
             </div>
         </header>
     </section>
-    <!-- End of section header -->
 
-    <!-- category page -->
-<!-- Baner -->
-    <section class="container mx-auto">
+    <!-- Improved Banner Carousel with Discounts -->
+    <section class="container mx-auto px-4 mt-4">
         <div id="default-carousel" class="relative w-full" data-carousel="slide">
-            <!-- Carousel wrapper -->
-            <div class="relative h-screen overflow-hidden rounded-lg">
-            <!-- Slide 1 -->
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <div class="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 h-full items-center p-6">
-
-                <div class="space-y-4">
-                    <h1 class="text-4xl font-bold  dark:text-yellow-500">
-                    Welcome to <span class="text-blue-500">our store</span>
-                    </h1>
-                    <div class=" rounded-lg">
-                        <h1 class="text-3xl font-bold text-yellow-400 dark:text-white">Laptop</h1>
-                        <p class="text-md text-gray-500 mt-2">
-                            Browse powerful laptops from top brands at the best prices.
-                        </p>
-                    </div>
-
-                    <div class="flex gap-4">
-                    <button class="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-                        Shop Now
-                    </button>
-                    <button class="px-5 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition">
-                        Shop All
-                    </button>
-                    </div>
-                </div>
-                <img src="https://pngfre.com/wp-content/uploads/laptop-png-from-pngfre-22.png" class="w-full" alt="">
-                </div>
-            </div>
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <div class="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 h-full items-center p-6">
-
-                <div class="space-y-4">
-                    <h1 class="text-4xl font-bold  dark:text-yellow-500">
-                    Welcome to <span class="text-blue-500">our store</span>
-                    </h1>
-                    <h1 class="text-3xl font-bold text-yellow-400 dark:text-white">
-                    Fashion Collection
-                    </h1>
-                    <p class="text-gray-500 mt-1">
-                    Discover trendy outfits, shoes, and accessories.
-                    </p>
-
-                    <div class="flex gap-4">
-                    <button class="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-                        Shop Now
-                    </button>
-                    <button class="px-5 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition">
-                        Shop All
-                    </button>
+            <div class="relative h-[85vh] min-h-[500px] lg:h-[80vh] overflow-hidden rounded-2xl shadow-2xl">
+                <!-- Slide 1 - Laptop 30% OFF -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <div class="w-full h-full bg-gradient-to-r from-purple-600 via-pink-500 to-red-500">
+                        <div class="grid lg:grid-cols-2 grid-cols-1 h-full items-center p-6 md:p-12">
+                            <div class="space-y-5 text-white" data-aos="fade-right">
+                                <div class="inline-flex items-center gap-2 bg-yellow-400 text-black px-4 py-2 rounded-full text-sm font-bold animate-pulse">
+                                    <i class="fas fa-bolt"></i> FLASH SALE <span class="bg-black/20 px-2 rounded-full">-30% OFF</span>
+                                </div>
+                                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold">Premium Laptops</h1>
+                                <p class="text-gray-100 text-lg">Powerful performance. Stunning design. Top brands at unbeatable prices.</p>
+                                <div class="flex items-center gap-4">
+                                    <span class="text-4xl font-bold">$699</span>
+                                    <span class="line-through text-gray-300 text-xl">$999</span>
+                                    <span class="bg-green-500 px-3 py-1 rounded-full text-sm">Save $300</span>
+                                </div>
+                                <div class="flex gap-4 pt-4">
+                                    <button class="px-6 py-3 bg-white text-gray-900 rounded-xl font-semibold hover:scale-105 transition flex items-center gap-2"><i class="fas fa-cart-shopping"></i> Shop Now</button>
+                                    <button class="px-6 py-3 border border-white rounded-xl hover:bg-white/10 transition flex items-center gap-2"><i class="fas fa-tag"></i> View Deals</button>
+                                </div>
+                            </div>
+                            <div class="flex justify-center" data-aos="fade-left">
+                                <img src="https://pngfre.com/wp-content/uploads/laptop-png-from-pngfre-22.png" class="w-full max-w-md object-contain drop-shadow-2xl img-hover" alt="Laptop">
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <img src="https://static.vecteezy.com/system/resources/thumbnails/047/249/331/small/sweater-shirt-hoodie-isolated-png.png" class="w-full" alt="">
-                </div>
-            </div>
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <div class="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 h-full items-center p-6">
-
-                <div class="space-y-4">
-                    <h1 class="text-4xl font-bold  dark:text-yellow-500">
-                    Welcome to <span class="text-blue-500">our store</span>
-                    </h1>
-                    <h1 class="text-3xl font-bold text-yellow-400 dark:text-white">
-                    Beauty & Skincare
-                    </h1>
-                    <p class="text-gray-500 mt-1">
-                    Discover skincare, makeup, and beauty essentials for your daily glow.
-                    </p>
-                                        <div class="flex gap-4">
-                    <button class="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-                        Shop Now
-                    </button>
-                    <button class="px-5 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition">
-                        Shop All
-                    </button>
+                <!-- Slide 2 - Fashion 50% OFF -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <div class="w-full h-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-700">
+                        <div class="grid lg:grid-cols-2 grid-cols-1 h-full items-center p-6 md:p-12">
+                            <div class="space-y-5 text-white" data-aos="fade-right">
+                                <div class="inline-flex items-center gap-2 bg-yellow-400 text-black px-4 py-2 rounded-full text-sm font-bold">
+                                    <i class="fas fa-fire"></i> MEGA SALE <span class="bg-black/20 px-2 rounded-full">-50% OFF</span>
+                                </div>
+                                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold">Fashion Collection</h1>
+                                <p class="text-gray-100 text-lg">Trendy outfits, shoes, and accessories for every style.</p>
+                                <div class="flex items-center gap-4">
+                                    <span class="text-4xl font-bold">$25</span>
+                                    <span class="line-through text-gray-300 text-xl">$50</span>
+                                    <span class="bg-green-500 px-3 py-1 rounded-full text-sm">Save $25</span>
+                                </div>
+                                <div class="flex gap-4 pt-4">
+                                    <button class="px-6 py-3 bg-white text-gray-900 rounded-xl font-semibold hover:scale-105 transition flex items-center gap-2"><i class="fas fa-bag-shopping"></i> Shop Now</button>
+                                    <button class="px-6 py-3 border border-white rounded-xl hover:bg-white/10 transition flex items-center gap-2"><i class="fas fa-eye"></i> Explore</button>
+                                </div>
+                            </div>
+                            <div class="flex justify-center" data-aos="fade-left">
+                                <img src="https://static.vecteezy.com/system/resources/thumbnails/047/249/331/small/sweater-shirt-hoodie-isolated-png.png" class="w-full max-w-md object-contain drop-shadow-2xl img-hover" alt="Fashion">
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <img src="https://static.vecteezy.com/system/resources/previews/058/267/064/non_2x/stunning-red-lipstick-in-a-splash-of-color-beauty-product-advertisement-free-png.png" class="w-full" alt="">
-                </div>
-            </div>
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <div class="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 h-full items-center p-6">
-
-                <div class="space-y-4">
-                    <h1 class="text-4xl font-bold  dark:text-yellow-500">
-                    Welcome to <span class="text-blue-500">our store</span>
-                    </h1>
-                    <h1 class="text-3xl font-bold text-yellow-400 dark:text-white">
-                    Shoes Collection
-                    </h1>
-                    <p class="text-gray-500 mt-1">
-                    Discover stylish and comfortable footwear for every occasion.
-                    </p>
-                    <div class="flex gap-4">
-                    <button class="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-                        Shop Now
-                    </button>
-                    <button class="px-5 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition">
-                        Shop All
-                    </button>
+                <!-- Slide 3 - Beauty BOGO -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <div class="w-full h-full bg-gradient-to-r from-rose-500 via-pink-500 to-red-600">
+                        <div class="grid lg:grid-cols-2 grid-cols-1 h-full items-center p-6 md:p-12">
+                            <div class="space-y-5 text-white" data-aos="fade-right">
+                                <div class="inline-flex items-center gap-2 bg-yellow-400 text-black px-4 py-2 rounded-full text-sm font-bold">
+                                    <i class="fas fa-gift"></i> BUY 1 GET 1 <span class="bg-black/20 px-2 rounded-full">FREE</span>
+                                </div>
+                                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold">Beauty & Skincare</h1>
+                                <p class="text-gray-100 text-lg">Glow every day with top beauty products and essentials.</p>
+                                <div class="flex items-center gap-4">
+                                    <span class="text-4xl font-bold">$19</span>
+                                    <span class="text-yellow-200">starting from</span>
+                                </div>
+                                <div class="flex gap-4 pt-4">
+                                    <button class="px-6 py-3 bg-white text-gray-900 rounded-xl font-semibold hover:scale-105 transition flex items-center gap-2"><i class="fas fa-heart"></i> Shop Now</button>
+                                    <button class="px-6 py-3 border border-white rounded-xl hover:bg-white/10 transition flex items-center gap-2"><i class="fas fa-percent"></i> Special Offer</button>
+                                </div>
+                            </div>
+                            <div class="flex justify-center" data-aos="fade-left">
+                                <img src="https://static.vecteezy.com/system/resources/previews/058/267/064/non_2x/stunning-red-lipstick-in-a-splash-of-color-beauty-product-advertisement-free-png.png" class="w-full max-w-md object-contain drop-shadow-2xl img-hover" alt="Beauty">
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <img src="https://static.vecteezy.com/system/resources/previews/021/275/823/non_2x/running-shoes-illustration-with-fire-shape-yellow-and-red-isolated-on-transparan-background-free-png.png" class="w-full" alt="">
+                <!-- Slide 4 - Shoes 40% OFF -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <div class="w-full h-full bg-gradient-to-r from-amber-500 via-orange-500 to-red-500">
+                        <div class="grid lg:grid-cols-2 grid-cols-1 h-full items-center p-6 md:p-12">
+                            <div class="space-y-5 text-white" data-aos="fade-right">
+                                <div class="inline-flex items-center gap-2 bg-yellow-400 text-black px-4 py-2 rounded-full text-sm font-bold">
+                                    <i class="fas fa-shoe-prints"></i> LIMITED TIME <span class="bg-black/20 px-2 rounded-full">-40% OFF</span>
+                                </div>
+                                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold">Shoes Collection</h1>
+                                <p class="text-gray-100 text-lg">Step up your style — sneakers, boots, running shoes for every occasion.</p>
+                                <div class="flex items-center gap-4">
+                                    <span class="text-4xl font-bold">$95</span>
+                                    <span class="line-through text-gray-300 text-xl">$159</span>
+                                    <span class="bg-green-500 px-3 py-1 rounded-full text-sm">Save $64</span>
+                                </div>
+                                <div class="flex gap-4 pt-4">
+                                    <button class="px-6 py-3 bg-white text-gray-900 rounded-xl font-semibold hover:scale-105 transition flex items-center gap-2"><i class="fas fa-running"></i> Shop Now</button>
+                                    <button class="px-6 py-3 border border-white rounded-xl hover:bg-white/10 transition flex items-center gap-2"><i class="fas fa-list-ul"></i> Collections</button>
+                                </div>
+                            </div>
+                            <div class="flex justify-center" data-aos="fade-left">
+                                <img src="https://static.vecteezy.com/system/resources/previews/021/275/823/non_2x/running-shoes-illustration-with-fire-shape-yellow-and-red-isolated-on-transparan-background-free-png.png" class="w-full max-w-md object-contain drop-shadow-2xl img-hover" alt="Shoes">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            </div>
+            <!-- Carousel Controls -->
+            <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group" data-carousel-prev>
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 hover:bg-white/50 dark:bg-gray-800/30 dark:hover:bg-gray-800/50 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                    <i class="fas fa-chevron-left text-white text-xl"></i>
+                </span>
+            </button>
+            <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group" data-carousel-next>
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 hover:bg-white/50 dark:bg-gray-800/30 dark:hover:bg-gray-800/50 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                    <i class="fas fa-chevron-right text-white text-xl"></i>
+                </span>
+            </button>
+        </div>
     </section>
-    <!-- End of section banner -->
-    <!-- main section -->
-    <main>
+
+    <!-- Main Content -->
+   <main>
         <!-- Category section -->
         <section class="w-full">
         <div class="container mx-auto py-10">
             <h1 class="text-center text-3xl font-bold underline dark:text-white"> Product Category </h1>
             <!-- Tabs -->
         <div class="flex justify-center gap-4 mt-6 flex-wrap">
-        <!-- ACTIVE -->
-            <button class="tab-btn px-5 py-2 rounded-full   text-gray-700 bg-gray-100 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700  hover:bg-gray-200 " data-bs-toggle="tab" data-bs-target="#all" >All Category</button>
-            <!-- NORMAL -->
-            <button class="tab-btn px-5 py-2 rounded-full text-gray-700 bg-gray-100 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700  hover:bg-gray-200 transition" data-bs-toggle="tab" data-bs-target="#electronics" > Electronics </button>
-            <button class="tab-btn px-5 py-2 rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"data-bs-toggle="tab" data-bs-target="#fashion" > Fashion </button>
-            <button class="tab-btn px-5 py-2 rounded-full text-gray-700 bg-gray-100  dark:bg-gray-800 hover:bg-gray-200 dark:text-gray-200 dark:hover:bg-gray-700"data-bs-toggle="tab" data-bs-target="#beauty" > Beauty & Personal Care</button>
-            <button class="tab-btn px-5 py-2 rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"data-bs-toggle="tab" data-bs-target="#sport" > Sports & Outdoor  </button>
+                <!-- ACTIVE -->
+                <a href="./page/allProducts.html" class="px-5 py-2 rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700 transition">
+                    All Category
+                </a>
+
+                <a href="#electronics" class="px-5 py-2 rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700 transition">
+                    Electronics
+                </a>
+
+                <a href="#fashion" class="px-5 py-2 rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700">
+                    Fashion
+                </a>
+
+                <a href="#beauty" class="px-5 py-2 rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700">
+                    Beauty & Personal Care
+                </a>
+
+                <a href="#sport" class="px-5 py-2 rounded-full text-gray-700 bg-gray-100 hover:bg-gray-200 transition dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700">
+                    Sports & Outdoor
+                </a>
+
         </div>
             <!-- Content -->
             <div class="mt-10 ">
@@ -209,7 +245,7 @@
                 <div class=" grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 ">
                    <!-- Electronics -->
                     <!-- Cards -->
-                    <div class="shadow-lg p-3  rounded-lg h-auto border-2 border-black  ">
+                    <div class="shadow-lg p-3  rounded-lg h-auto border-2 border-black  " data-aos="fade-up-right">
                     <!-- Image -->
                     <div class="w-full h-48 rounded-md overflow-hidden bg-gray-50 p-4 hover:bg-white shadow-md group">
                         <img 
@@ -236,9 +272,9 @@
                     </div>
                   <!-- End cards -->
                     <!-- Cards -->
-                    <div class="shadow-lg p-3  rounded-lg h-auto border-2 border-black transition duration-300">
+                    <div class="shadow-lg p-3  rounded-lg h-auto border-2 border-black transition duration-300" data-aos="flip-left">
                     <!-- Image -->
-                    <div class="w-full h-48 rounded-md overflow-hidden  bg-gray-50 p-4 hover:bg-white shadow-md group">
+                    <div class="w-full h-48 rounded-md overflow-hidden  bg-gray-50 p-4 hover:bg-white shadow-md group" >
                         <img 
                             class="w-full h-full object-cover transition duration-300 hover:scale-100 img-hover"
                             src="https://www.pngall.com/wp-content/uploads/20/iPhone-17-Pro-Max-Concept-Art-PNG.png" 
@@ -263,7 +299,7 @@
                     </div>
                   <!-- End cards -->
                     <!-- Cards -->
-                    <div class="shadow-lg p-3 rounded-lg h-auto border-2 border-black transition duration-300">
+                    <div class="shadow-lg p-3 rounded-lg h-auto border-2 border-black transition duration-300"data-aos="flip-right" >
                     <!-- Image -->
                     <div class="w-full h-48 rounded-md overflow-hidden  bg-gray-50 p-4 hover:bg-white shadow-md group">
                         <img 
@@ -290,7 +326,7 @@
                     </div>
                   <!-- End cards -->
                     <!-- Cards -->
-                    <div class="shadow-lg p-3  rounded-lg h-auto border-2 border-black  transition duration-300">
+                    <div class="shadow-lg p-3  rounded-lg h-auto border-2 border-black  transition duration-300" data-aos="fade-left">
                     <!-- Image -->
                     <div class="w-full h-48 rounded-md overflow-hidden  bg-gray-50 p-4 hover:bg-white shadow-md group">
                         <img 
@@ -319,7 +355,7 @@
 
                   <!-- Fashion -->
                    <!-- Cards1 -->
-                    <div class="shadow-lg p-3 rounded-lg h-auto border-2 border-black transition duration-300">
+                    <div class="shadow-lg p-3 rounded-lg h-auto border-2 border-black transition duration-300"  data-aos="fade-up-right">
                     <!-- Image -->
                     <div class="w-full h-48 rounded-md overflow-hidden bg-slate-200 group">
                         <img 
@@ -329,8 +365,8 @@
                     </div>
                          <!-- Content -->
                     <div class="mt-4 space-y-2">
-                        <h1 class="text-lg font-semibold text-gray-800">Nike Vergeltung Erneuern Herren Sneaker </h1>
-                        <p class="text-sm text-gray-500">Players generally recommend sizing true to size for football boots. </p>
+                        <h1 class="text-lg font-semibold text-gray-800 dark:text-white">Nike Vergeltung Erneuern Herren Sneaker </h1>
+                        <p class="text-sm text-gray-500 dark:text-white">Players generally recommend sizing true to size for football boots. </p>
                         <div >
                             <i class="fa-solid fa-star text-red-600"></i>
                             <i class="fa-solid fa-star text-red-600"></i>
@@ -338,7 +374,7 @@
                             <i class="fa-solid fa-star text-red-600"></i>
                             <i class="fa-solid fa-star text-red-600"></i>
                         </div>
-                        <p class="text-xl font-bold text-pink-500"> $229</p>
+                        <p class="text-xl font-bold text-pink-500 dark:text-white"> $229</p>
                         <div class=" w-full flex justify-end">
                             <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
                         </div>
@@ -347,7 +383,7 @@
                   <!-- End cards -->
 
                    <!-- Cards2 -->
-                    <div class="shadow-lg p-3  rounded-lg h-auto border-2 border-black  transition duration-300">
+                    <div class="shadow-lg p-3  rounded-lg h-auto border-2 border-black  transition duration-300"data-aos="flip-left">
                     <!-- Image -->
                     <div class="w-full h-48 rounded-md overflow-hidden bg-slate-200 group">
                         <img 
@@ -357,8 +393,8 @@
                     </div>
                          <!-- Content -->
                     <div class="mt-4 space-y-2">
-                        <h1 class="text-lg font-semibold text-gray-800">Nike Shox TL Women's Shoes. Nike CA </h1>
-                        <p class="text-sm text-gray-500">No soft steps here. The Nike Shox TL brings unfiltered tech. </p>
+                        <h1 class="text-lg font-semibold text-gray-800 dark:text-white">Nike Shox TL Women's Shoes. Nike CA </h1>
+                        <p class="text-sm text-gray-500 dark:text-white">No soft steps here. The Nike Shox TL brings unfiltered tech. </p>
                         <div >
                             <i class="fa-solid fa-star text-red-600"></i>
                             <i class="fa-solid fa-star text-red-600"></i>
@@ -366,7 +402,7 @@
                             <i class="fa-solid fa-star text-red-600"></i>
                             <i class="fa-solid fa-star text-red-600"></i>
                         </div>
-                        <p class="text-xl font-bold text-pink-500"> $276</p>
+                        <p class="text-xl font-bold text-pink-500 dark:text-white"> $276</p>
                         <div class=" w-full flex justify-end">
                             <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
                         </div>
@@ -375,7 +411,7 @@
                   <!-- End cards -->
 
                    <!-- Cards3 -->
-                    <div class="shadow-lg p-3  rounded-lg h-auto border-2 border-black  transition duration-300">
+                    <div class="shadow-lg p-3  rounded-lg h-auto border-2 border-black  transition duration-300" data-aos="fade-left">
                     <!-- Image -->
                     <div class="w-full h-48 rounded-md overflow-hidden bg-slate-200 group">
                         <img 
@@ -385,8 +421,8 @@
                     </div>
                          <!-- Content -->
                     <div class="mt-4 space-y-2">
-                        <h1 class="text-lg font-semibold text-gray-800">Nike Shox TL Fade </h1>
-                        <p class="text-sm text-gray-500">NNike Shox TL Fade is a mash-up of Pegasus sneakers past. It takes the early 2000s.</p>
+                        <h1 class="text-lg font-semibold text-gray-800 dark:text-white">Nike Shox TL Fade </h1>
+                        <p class="text-sm text-gray-500 dark:text-white">NNike Shox TL Fade is a mash-up of Pegasus sneakers past. It takes the early 2000s.</p>
                         <div >
                             <i class="fa-solid fa-star text-red-600"></i>
                             <i class="fa-solid fa-star text-red-600"></i>
@@ -394,7 +430,7 @@
                             <i class="fa-solid fa-star text-red-600"></i>
                             <i class="fa-solid fa-star text-red-600"></i>
                         </div>
-                        <p class="text-xl font-bold text-pink-500"> $3589</p>
+                        <p class="text-xl font-bold text-pink-500 dark:text-white"> $3589</p>
                         <div class=" w-full flex justify-end">
                             <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
                         </div>
@@ -403,7 +439,7 @@
                   <!-- End cards -->
 
                    <!-- Cards4 -->
-                    <div class="shadow-lg p-3 rounded-lg h-auto border-2 border-black  transition duration-300">
+                    <div class="shadow-lg p-3 rounded-lg h-auto border-2 border-black  transition duration-300" data-aos="fade-up-right">
                     <!-- Image -->
                     <div class="w-full h-48 rounded-md overflow-hidden bg-slate-200 group">
                         <img 
@@ -413,8 +449,8 @@
                     </div>
                          <!-- Content -->
                     <div class="mt-4 space-y-2">
-                        <h1 class="text-lg font-semibold text-gray-800">Nike Air More Uptempo '96 </h1>
-                        <p class="text-sm text-gray-500">nspired by '90s graffiti art and high-flying basketball style.</p>
+                        <h1 class="text-lg font-semibold text-gray-800 dark:text-white">Nike Air More Uptempo '96 </h1>
+                        <p class="text-sm text-gray-500 dark:text-white">nspired by '90s graffiti art and high-flying basketball style.</p>
                         <div >
                             <i class="fa-solid fa-star text-red-600"></i>
                             <i class="fa-solid fa-star text-red-600"></i>
@@ -422,7 +458,7 @@
                             <i class="fa-solid fa-star text-red-600"></i>
                             <i class="fa-solid fa-star text-red-600"></i>
                         </div>
-                        <p class="text-xl font-bold text-pink-500"> $769</p>
+                        <p class="text-xl font-bold text-pink-500 dark:text-white"> $769</p>
                         <div class=" w-full flex justify-end">
                             <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
                         </div>
@@ -431,7 +467,7 @@
                   <!-- End cards -->
 
                    <!-- Cards5 -->
-                    <div class="shadow-lg p-3 rounded-lg h-auto border-2 border-black  transition duration-300">
+                    <div class="shadow-lg p-3 rounded-lg h-auto border-2 border-black  transition duration-300" data-aos="fade-up-right">
                     <!-- Image -->
                     <div class="w-full h-48 rounded-md overflow-hidden bg-slate-200 group">
                         <img 
@@ -441,8 +477,8 @@
                     </div>
                          <!-- Content -->
                     <div class="mt-4 space-y-2">
-                        <h1 class="text-lg font-semibold text-gray-800">Authentic Collection </h1>
-                        <p class="text-sm text-gray-500">Wear what the players wear! The Los Angeles Dodgers Authentic Collection 59FIFTY.</p>
+                        <h1 class="text-lg font-semibold text-gray-800 dark:text-white">Authentic Collection </h1>
+                        <p class="text-sm text-gray-500 dark:text-white">Wear what the players wear! The Los Angeles Dodgers Authentic Collection 59FIFTY.</p>
                         <div >
                             <i class="fa-solid fa-star text-red-600"></i>
                             <i class="fa-solid fa-star text-red-600"></i>
@@ -450,7 +486,7 @@
                             <i class="fa-solid fa-star text-red-600"></i>
                             <i class="fa-solid fa-star text-red-600"></i>
                         </div>
-                        <p class="text-xl font-bold text-pink-500">$2222</p>
+                        <p class="text-xl font-bold text-pink-500 dark:text-white">$2222</p>
                         <div class=" w-full flex justify-end">
                             <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
                         </div>
@@ -459,7 +495,7 @@
                   <!-- End cards -->
 
                    <!-- Cards6 -->
-                    <div class="shadow-lg p-3  rounded-lg h-auto border-2 border-black  transition duration-300">
+                    <div class="shadow-lg p-3  rounded-lg h-auto border-2 border-black  transition duration-300" data-aos="flip-left">
                     <!-- Image -->
                     <div class="w-full h-48 rounded-md overflow-hidden bg-slate-200 group">
                         <img 
@@ -469,8 +505,8 @@
                     </div>
                          <!-- Content -->
                     <div class="mt-4 space-y-2">
-                        <h1 class="text-lg font-semibold text-gray-800">Men's Baseball Cap</h1>
-                        <p class="text-sm text-gray-500">MSpring And Summer Fashionable Hip Hop Cap, Sunshade Cap, Sunscreen Cap, Embroidered Pattern Sports H07.</p>
+                        <h1 class="text-lg font-semibold text-gray-800 dark:text-white">Men's Baseball Cap</h1>
+                        <p class="text-sm text-gray-500 dark:text-white">MSpring And Summer Fashionable Hip Hop Cap, Sunshade Cap, Sunscreen Cap, Embroidered Pattern Sports H07.</p>
                         <div >
                             <i class="fa-solid fa-star text-red-600"></i>
                             <i class="fa-solid fa-star text-red-600"></i>
@@ -478,7 +514,7 @@
                             <i class="fa-solid fa-star text-red-600"></i>
                             <i class="fa-solid fa-star text-red-600"></i>
                         </div>
-                        <p class="text-xl font-bold text-pink-500"> $1209</p>
+                        <p class="text-xl font-bold text-pink-500 dark:text-white"> $1209</p>
                         <div class=" w-full flex justify-end">
                             <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
                         </div>
@@ -487,7 +523,7 @@
                   <!-- End cards -->
 
                    <!-- Cards7 -->
-                    <div class="shadow-lg p-3 rounded-lg h-auto border-2 border-black  transition duration-300">
+                    <div class="shadow-lg p-3 rounded-lg h-auto border-2 border-black  transition duration-300"  data-aos="fade-left">
                     <!-- Image -->
                     <div class="w-full h-48 rounded-md overflow-hidden bg-slate-200 group">
                         <img 
@@ -497,8 +533,8 @@
                     </div>
                          <!-- Content -->
                     <div class="mt-4 space-y-2">
-                        <h1 class="text-lg font-semibold text-gray-800">Handcuffs Plain</h1>
-                        <p class="text-sm text-gray-500">Men Cap Unisex Cotton Sports Caps Boys Girls Women Adjustable Baseball Cap.</p>
+                        <h1 class="text-lg font-semibold text-gray-800 dark:text-white">Handcuffs Plain</h1>
+                        <p class="text-sm text-gray-500 dark:text-white">Men Cap Unisex Cotton Sports Caps Boys Girls Women Adjustable Baseball Cap.</p>
                         <div >
                             <i class="fa-solid fa-star text-red-600"></i>
                             <i class="fa-solid fa-star text-red-600"></i>
@@ -506,7 +542,7 @@
                             <i class="fa-solid fa-star text-red-600"></i>
                             <i class="fa-solid fa-star text-red-600"></i>
                         </div>
-                        <p class="text-xl font-bold text-pink-500"> $889</p>
+                        <p class="text-xl font-bold text-pink-500 dark:text-white"> $889</p>
                         <div class=" w-full flex justify-end">
                             <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
                         </div>
@@ -515,7 +551,7 @@
                   <!-- End cards -->
 
                    <!-- Cards8 -->
-                    <div class="shadow-lg p-3  rounded-lg h-auto border-2 border-black  transition duration-300">
+                    <div class="shadow-lg p-3  rounded-lg h-auto border-2 border-black  transition duration-300" data-aos="fade-up-right">
                     <!-- Image -->
                     <div class="w-full h-48 rounded-md overflow-hidden bg-slate-200 group">
                         <img 
@@ -525,8 +561,8 @@
                     </div>
                          <!-- Content -->
                     <div class="mt-4 space-y-2">
-                        <h1 class="text-lg font-semibold text-gray-800">Puma Scuderia Ferrari Lifestyle Cap</h1>
-                        <p class="text-sm text-gray-500">New Era  modern 4-panel shaped baseball cap featuring a pre-curved visor.</p>
+                        <h1 class="text-lg font-semibold text-gray-800 dark:text-white">Puma Scuderia Ferrari Lifestyle Cap</h1>
+                        <p class="text-sm text-gray-500 dark:text-white">New Era  modern 4-panel shaped baseball cap featuring a pre-curved visor.</p>
                         <div >
                             <i class="fa-solid fa-star text-red-600"></i>
                             <i class="fa-solid fa-star text-red-600"></i>
@@ -534,7 +570,7 @@
                             <i class="fa-solid fa-star text-red-600"></i>
                             <i class="fa-solid fa-star text-red-600"></i>
                         </div>
-                        <p class="text-xl font-bold text-pink-500"> $798</p>
+                        <p class="text-xl font-bold text-pink-500 dark:text-white"> $798</p>
                         <div class=" w-full flex justify-end">
                             <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
                         </div>
@@ -543,7 +579,7 @@
                   <!-- End cards -->
 
                    <!-- Cards9 -->
-                    <div class="shadow-lg p-3 rounded-lg h-auto border-2 border-black  transition duration-300">
+                    <div class="shadow-lg p-3 rounded-lg h-auto border-2 border-black  transition duration-300" data-aos="fade-up-right">
                     <!-- Image -->
                     <div class="w-full h-48 rounded-md overflow-hidden bg-slate-200 group">
                         <img 
@@ -553,8 +589,8 @@
                     </div>
                          <!-- Content -->
                     <div class="mt-4 space-y-2">
-                        <h1 class="text-lg font-semibold text-gray-800">eyeglasses Pills III</h1>
-                        <p class="text-sm text-gray-500">The hinges and temples are often crafted from high-quality.</p>
+                        <h1 class="text-lg font-semibold text-gray-800 dark:text-white">eyeglasses Pills III</h1>
+                        <p class="text-sm text-gray-500 dark:text-white">The hinges and temples are often crafted from high-quality.</p>
                         <div >
                             <i class="fa-solid fa-star text-red-600"></i>
                             <i class="fa-solid fa-star text-red-600"></i>
@@ -562,7 +598,7 @@
                             <i class="fa-solid fa-star text-red-600"></i>
                             <i class="fa-solid fa-star text-red-600"></i>
                         </div>
-                        <p class="text-xl font-bold text-pink-500"> $1699</p>
+                        <p class="text-xl font-bold text-pink-500 dark:text-white"> $1699</p>
                         <div class=" w-full flex justify-end">
                             <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
                         </div>
@@ -571,7 +607,7 @@
                   <!-- End cards -->
 
                    <!-- Cards10 -->
-                    <div class="shadow-lg p-3 rounded-lg h-auto border-2 border-black  transition duration-300">
+                    <div class="shadow-lg p-3 rounded-lg h-auto border-2 border-black  transition duration-300"  data-aos="flip-left">
                     <!-- Image -->
                     <div class="w-full h-48 rounded-md overflow-hidden bg-slate-200 group">
                         <img 
@@ -581,8 +617,8 @@
                     </div>
                          <!-- Content -->
                     <div class="mt-4 space-y-2">
-                        <h1 class="text-lg font-semibold text-gray-800">METAL GEAR XI</h1>
-                        <p class="text-sm text-gray-500">hese glasses feature a unibody construction with aerodynamic curves.</p>
+                        <h1 class="text-lg font-semibold text-gray-800 dark:text-white">METAL GEAR XI</h1>
+                        <p class="text-sm text-gray-500 dark:text-white">hese glasses feature a unibody construction with aerodynamic curves.</p>
                         <div >
                             <i class="fa-solid fa-star text-red-600"></i>
                             <i class="fa-solid fa-star text-red-600"></i>
@@ -590,7 +626,7 @@
                             <i class="fa-solid fa-star text-red-600"></i>
                             <i class="fa-solid fa-star text-red-600"></i>
                         </div>
-                        <p class="text-xl font-bold text-pink-500"> $1799</p>
+                        <p class="text-xl font-bold text-pink-500 dark:text-white"> $1799</p>
                         <div class=" w-full flex justify-end">
                             <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
                         </div>
@@ -599,7 +635,7 @@
                   <!-- End cards -->
 
                    <!-- Cards11 -->
-                    <div class="shadow-lg p-3 rounded-lg h-auto border-2 border-black  transition duration-300">
+                    <div class="shadow-lg p-3 rounded-lg h-auto border-2 border-black  transition duration-300"data-aos="fade-left">
                     <!-- Image -->
                     <div class="w-full h-48 rounded-md overflow-hidden bg-slate-200 group">
                         <img 
@@ -609,8 +645,8 @@
                     </div>
                          <!-- Content -->
                     <div class="mt-4 space-y-2">
-                        <h1 class="text-lg font-semibold text-gray-800">Oakley M Frame Sweep </h1>
-                        <p class="text-sm text-gray-500">Utilizes a three-point fit to maintain optical alignment and comfort.</p>
+                        <h1 class="text-lg font-semibold text-gray-800 dark:text-white">Oakley M Frame Sweep </h1>
+                        <p class="text-sm text-gray-500 dark:text-white">Utilizes a three-point fit to maintain optical alignment and comfort.</p>
                         <div >
                             <i class="fa-solid fa-star text-red-600"></i>
                             <i class="fa-solid fa-star text-red-600"></i>
@@ -618,7 +654,7 @@
                             <i class="fa-solid fa-star text-red-600"></i>
                             <i class="fa-solid fa-star text-red-600"></i>
                         </div>
-                        <p class="text-xl font-bold text-pink-500"> $1899</p>
+                        <p class="text-xl font-bold text-pink-500 dark:text-white"> $1899</p>
                         <div class=" w-full flex justify-end">
                             <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
                         </div>
@@ -627,7 +663,7 @@
                   <!-- End cards -->
 
                    <!-- Cards12 -->
-                    <div class="shadow-lg p-3  rounded-lg h-auto border-2 border-black  transition duration-300">
+                    <div class="shadow-lg p-3  rounded-lg h-auto border-2 border-black  transition duration-300" data-aos="fade-up-right">
                     <!-- Image -->
                     <div class="w-full h-48 rounded-md overflow-hidden bg-slate-200 group">
                         <img 
@@ -637,8 +673,8 @@
                     </div>
                          <!-- Content -->
                     <div class="mt-4 space-y-2">
-                        <h1 class="text-lg font-semibold text-gray-800">Dystopian "Verge" Glasses </h1>
-                        <p class="text-sm text-gray-500">These avant-garde frames are part of a dystopian-inspired collection that uses cutting-edge 3D printing.</p>
+                        <h1 class="text-lg font-semibold text-gray-800 dark:text-white" >Dystopian "Verge" Glasses </h1>
+                        <p class="text-sm text-gray-500 dark:text-white">These avant-garde frames are part of a dystopian-inspired collection that uses cutting-edge 3D printing.</p>
                         <div >
                             <i class="fa-solid fa-star text-red-600"></i>
                             <i class="fa-solid fa-star text-red-600"></i>
@@ -646,7 +682,7 @@
                             <i class="fa-solid fa-star text-red-600"></i>
                             <i class="fa-solid fa-star text-red-600"></i>
                         </div>
-                        <p class="text-xl font-bold text-pink-500"> $1999</p>
+                        <p class="text-xl font-bold text-pink-500 dark:text-white"> $1999</p>
                         <div class=" w-full flex justify-end">
                             <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
                         </div>
@@ -655,7 +691,7 @@
                   <!-- End cards -->
 
                    <!-- Cards13 -->
-                    <div class="shadow-lg p-3  rounded-lg h-auto border-2 border-black  transition duration-300">
+                    <div class="shadow-lg p-3  rounded-lg h-auto border-2 border-black  transition duration-300" data-aos="fade-up-right">
                     <!-- Image -->
                     <div class="w-full h-48 rounded-md overflow-hidden bg-slate-200 group">
                         <img 
@@ -665,8 +701,8 @@
                     </div>
                          <!-- Content -->
                     <div class="mt-4 space-y-2">
-                        <h1 class="text-lg font-semibold text-gray-800">Leather Bomber Jacket</h1>
-                        <p class="text-sm text-gray-500">TFunctional storage including two front slash pockets and a cargo pocket on the left sleeve.</p>
+                        <h1 class="text-lg font-semibold text-gray-800 dark:text-white">Leather Bomber Jacket</h1>
+                        <p class="text-sm text-gray-500 dark:text-white">TFunctional storage including two front slash pockets and a cargo pocket on the left sleeve.</p>
                         <div >
                             <i class="fa-solid fa-star text-red-600"></i>
                             <i class="fa-solid fa-star text-red-600"></i>
@@ -674,7 +710,7 @@
                             <i class="fa-solid fa-star text-red-600"></i>
                             <i class="fa-solid fa-star text-red-600"></i>
                         </div>
-                        <p class="text-xl font-bold text-pink-500"> $2099</p>
+                        <p class="text-xl font-bold text-pink-500 dark:text-white"> $2099</p>
                         <div class=" w-full flex justify-end">
                             <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
                         </div>
@@ -683,7 +719,7 @@
                   <!-- End cards -->
 
                    <!-- Cards14 -->
-                    <div class="shadow-lg p-3  rounded-lg h-auto border-2 border-black  transition duration-300">
+                    <div class="shadow-lg p-3  rounded-lg h-auto border-2 border-black  transition duration-300" data-aos="flip-left">
                     <!-- Image -->
                     <div class="w-full h-48 rounded-md overflow-hidden bg-slate-200 group">
                         <img 
@@ -693,8 +729,8 @@
                     </div>
                          <!-- Content -->
                     <div class="mt-4 space-y-2">
-                        <h1 class="text-lg font-semibold text-gray-800">Scuderia Ferrari black and white</h1>
-                        <p class="text-sm text-gray-500"> "half-black, half-white" split design with a snap-tab collar and zippered accents.</p>
+                        <h1 class="text-lg font-semibold text-gray-800 dark:text-white">Scuderia Ferrari black and white</h1>
+                        <p class="text-sm text-gray-500 dark:text-white"> "half-black, half-white" split design with a snap-tab collar and zippered accents.</p>
                         <div >
                             <i class="fa-solid fa-star text-red-600"></i>
                             <i class="fa-solid fa-star text-red-600"></i>
@@ -702,7 +738,7 @@
                             <i class="fa-solid fa-star text-red-600"></i>
                             <i class="fa-solid fa-star text-red-600"></i>
                         </div>
-                        <p class="text-xl font-bold text-pink-500"> $2229</p>
+                        <p class="text-xl font-bold text-pink-500 dark:text-white"> $2229</p>
                         <div class=" w-full flex justify-end">
                             <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
                         </div>
@@ -711,7 +747,7 @@
                   <!-- End cards -->
 
                    <!-- Cards15 -->
-                    <div class="shadow-lg p-3  rounded-lg h-auto border-2 border-black  transition duration-300">
+                    <div class="shadow-lg p-3  rounded-lg h-auto border-2 border-black  transition duration-300"data-aos="fade-left">
                     <!-- Image -->
                     <div class="w-full h-48 rounded-md overflow-hidden bg-slate-200 group">
                         <img 
@@ -721,8 +757,8 @@
                     </div>
                          <!-- Content -->
                     <div class="mt-4 space-y-2">
-                        <h1 class="text-lg font-semibold text-gray-800">Destroyer Crop Tee</h1>
-                        <p class="text-sm text-gray-500"> Several brands offer this specific look.</p>
+                        <h1 class="text-lg font-semibold text-gray-800 dark:text-white">Destroyer Crop Tee</h1>
+                        <p class="text-sm text-gray-500 dark:text-white"> Several brands offer this specific look.</p>
                         <div >
                             <i class="fa-solid fa-star text-red-600"></i>
                             <i class="fa-solid fa-star text-red-600"></i>
@@ -730,7 +766,7 @@
                             <i class="fa-solid fa-star text-red-600"></i>
                             <i class="fa-solid fa-star text-red-600"></i>
                         </div>
-                        <p class="text-xl font-bold text-pink-500"> $3339</p>
+                        <p class="text-xl font-bold text-pink-500 dark:text-white"> $3339</p>
                         <div class=" w-full flex justify-end">
                             <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
                         </div>
@@ -739,7 +775,7 @@
                   <!-- End cards -->
 
                    <!-- Cards16 -->
-                    <div class="shadow-lg p-3  rounded-lg h-auto border-2 border-black  transition duration-300">
+                    <div class="shadow-lg p-3  rounded-lg h-auto border-2 border-black  transition duration-300" data-aos="fade-up-right">
                     <!-- Image -->
                     <div class="w-full h-48 rounded-md overflow-hidden bg-slate-200 group">
                         <img 
@@ -749,8 +785,8 @@
                     </div>
                          <!-- Content -->
                     <div class="mt-4 space-y-2">
-                        <h1 class="text-lg font-semibold text-gray-800">PinkSavior Space Girl Jacket</h1>
-                        <p class="text-sm text-gray-500"> A piece of Y3K and techwear-inspired fashion..</p>
+                        <h1 class="text-lg font-semibold text-gray-800 dark:text-white">PinkSavior Space Girl Jacket</h1>
+                        <p class="text-sm text-gray-500 dark:text-white"> A piece of Y3K and techwear-inspired fashion..</p>
                         <div >
                             <i class="fa-solid fa-star text-red-600"></i>
                             <i class="fa-solid fa-star text-red-600"></i>
@@ -758,30 +794,765 @@
                             <i class="fa-solid fa-star text-red-600"></i>
                             <i class="fa-solid fa-star text-red-600"></i>
                         </div>
-                        <p class="text-xl font-bold text-pink-500"> $3349</p>
+                        <p class="text-xl font-bold text-pink-500 dark:text-white"> $3349</p>
+                        <div class=" w-full flex justify-end">
+                            <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
+                        </div>
+                    </div>
+
+                    
+                    </div>
+
+                <!-- Skincare and personal care -->
+                   <!-- Cards1 -->
+                    <div class="shadow-lg p-3  rounded-lg h-auto border-2 border-black transition duration-300" data-aos="fade-up-right">
+                    <!-- Image -->
+                    <div class="w-full h-48 rounded-md overflow-hidden bg-slate-200 group">
+                        <img 
+                            class="w-full h-full object-cover transition duration-300 hover:scale-100 img-hover"
+                            src="https://i.pinimg.com/736x/4e/d3/62/4ed362bc4652cb85df400a89f45ce075.jpg" 
+                            alt="LANEIGE Lip Sleeping Mask">
+                    </div>
+                         <!-- Content -->
+                    <div class="mt-4 space-y-2">
+                        <h1 class="text-lg font-semibold text-gray-800 dark:text-white"> LANEIGE Lip Sleeping Mask</h1>
+                        <p class="text-sm text-gray-500 dark:text-white">Deeply hydrates lips overnight, leaving them soft, smooth, and nourished by morning. </p>
+                        <div >
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                        </div>
+                        <p class="text-xl font-bold text-pink-500 dark:text-white"> $20</p>
                         <div class=" w-full flex justify-end">
                             <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
                         </div>
                     </div>
                     </div>
                   <!-- End cards -->
+                   <!-- Cards2 -->
+                    <div class="shadow-lg p-3  rounded-lg h-auto border-2 border-black transition duration-300" data-aos="flip-left">
+                    <!-- Image -->
+                    <div class="w-full h-48 rounded-md overflow-hidden bg-slate-200 group">
+                    <img 
+                       class="w-full h-full object-cover transition duration-300 hover:scale-100 img-hover"
+                       src="https://i.pinimg.com/1200x/18/f6/13/18f6137e7a8ca8a4d5085546fec8491d.jpg" 
+                       alt="Rhode Toner">
+                    </div>
+                         <!-- Content -->
+                    <div class="mt-4 space-y-2">
+                        <h1 class="text-lg font-semibold text-gray-800 dark:text-white "> Rhode Toner</h1>
+                        <p class="text-sm text-gray-500 dark:text-white">  Hydrates and balances the skin, leaving it fresh, smooth, and ready for the next steps.</p>
+                        <div >
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                        </div>
+                        <p class="text-xl font-bold text-pink-500 dark:text-white"> $30</p>
+                        <div class=" w-full flex justify-end">
+                            <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
+                        </div>
+                    </div>
+                    </div>
+                  <!-- End cards -->
+                   <!-- Cards3 -->
+                    <div class="shadow-lg p-3 rounded-lg h-auto border-2 border-black transition duration-300" data-aos="fade-right">
+                    <!-- Image -->
+                    <div class="w-full h-48 rounded-md overflow-hidden bg-slate-200 group">
+                    <img 
+                       class="w-full h-full object-cover transition duration-300 hover:scale-100  img-hover"
+                       src="https://i.pinimg.com/736x/c5/b7/42/c5b742402251b0d70475a01d644eb3e3.jpg" 
+                       alt="Beauty of Joseon SunScreen">
+                    </div>
+                         <!-- Content -->
+                    <div class="mt-4 space-y-2">
+                        <h1 class="text-lg font-semibold text-gray-800 dark:text-white">Beauty of Joseon SunScreen </h1>
+                        <p class="text-sm text-gray-500 dark:text-white">  Lightweight sunscreen that protects skin from UV rays while keeping it hydrated and glowing.</p>
+                        <div >
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                        </div>
+                        <p class="text-xl font-bold text-pink-500 dark:text-white"> $18</p>
+                        <div class=" w-full flex justify-end">
+                            <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
+                        </div>
+                    </div>
+                    </div>
+                  <!-- End cards -->
+                   <!-- Cards4 -->
+                    <div class="shadow-lg p-3  rounded-lg h-auto border-2 border-black transition duration-300" data-aos="fade-up-left">
+                    <!-- Image -->
+                    <div class="w-full h-48 rounded-md overflow-hidden bg-slate-200 group">
+                    <img 
+                       class="w-full h-full object-cover transition duration-300 hover:scale-100  img-hover"
+                       src="https://i.pinimg.com/1200x/ed/3e/30/ed3e300ae0045299333b3e4c9620854c.jpg" 
+                       alt="Anua Peach 70 Niacin Serum">
+                    </div>
+                         <!-- Content -->
+                    <div class="mt-4 space-y-2">
+                        <h1 class="text-lg font-semibold text-gray-800 dark:text-white">Anua Peach 70 Niacin Serum </h1>
+                        <p class="text-sm text-gray-500 dark:text-white">Brightens dull skin and improves texture with a refreshing and lightweight formula.</p>
+                        <div >
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                        </div>
+                        <p class="text-xl font-bold text-pink-500 dark:text-white"> $25</p>
+                        <div class=" w-full flex justify-end">
+                            <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
+                        </div>
+                    </div>
+                    </div>
+                  <!-- End cards -->
+                   <!-- Cards5 -->
+                    <div class="shadow-lg p-3  rounded-lg h-auto border-2 border-black transition duration-300" data-aos="fade-up-right">
+                    <!-- Image -->
+                    <div class="w-full h-48 rounded-md overflow-hidden bg-slate-200 group">
+                    <img 
+                       class="w-full h-full object-cover transition duration-300 hover:scale-100  img-hover"
+                       src="https://i.pinimg.com/1200x/75/0f/27/750f2772882a5864ed5c1be05222926f.jpg" 
+                       alt="Avene Spray (Avene Thermal Spring Water)">
+                    </div>
+                         <!-- Content -->
+                    <div class="mt-4 space-y-2">
+                        <h1 class="text-lg font-semibold text-gray-800 dark:text-white">Avene Spray (Avene Thermal Spring Water) </h1>
+                        <p class="text-sm text-gray-500 dark:text-white"> Instantly soothes and refreshes sensitive skin with a gentle, calming mist. </p>
+                        <div >
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                        </div>
+                        <p class="text-xl font-bold text-pink-500 dark:text-white"> $14</p>
+                        <div class=" w-full flex justify-end">
+                            <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
+                        </div>
+                    </div>
+                    </div>
+                  <!-- End cards -->
+                   <!-- Cards6 -->
+                    <div class="shadow-lg p-3 rounded-lg h-auto border-2 border-black transition duration-300" data-aos="flip-left">
+                    <!-- Image -->
+                    <div class="w-full h-48 rounded-md overflow-hidden bg-slate-200 group">
+                    <img 
+                       class="w-full h-full object-cover transition duration-300 hover:scale-100  img-hover"
+                       src="https://i.pinimg.com/736x/b9/58/9f/b9589f8115d1506fa723e3bca9437fe8.jpg" 
+                       alt=" Medicube Pad (Medicine Pad) ">
+                    </div>
+                         <!-- Content -->
+                    <div class="mt-4 space-y-2">
+                        <h1 class="text-lg font-semibold text-gray-800 dark:text-white">Medicube Pad (Medicine Pad) </h1>
+                        <p class="text-sm text-gray-500 dark:text-white"> Gently exfoliates and clears pores while improving overall skin texture.</p>
+                        <div >
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                        </div>
+                        <p class="text-xl font-bold text-pink-500 dark:text-white"> $22</p>
+                        <div class=" w-full flex justify-end">
+                            <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
+                        </div>
+                    </div>
+                    </div>
+                  <!-- End cards -->
+                   <!-- Cards7 -->
+                    <div class="shadow-lg p-3 rounded-lg h-auto border-2 border-black transition duration-300" data-aos="flip-right">
+                    <!-- Image -->
+                    <div class="w-full h-48 rounded-md overflow-hidden bg-slate-200 group">
+                    <img 
+                       class="w-full h-full object-cover transition duration-300 hover:scale-100  img-hover"
+                       src="https://i.pinimg.com/1200x/b4/3f/b6/b43fb6378756e16f8d7572225e7bbb02.jpg" 
+                       alt=" Honey Sakura Shampoo ">
+                    </div>
+                         <!-- Content -->
+                    <div class="mt-4 space-y-2">
+                        <h1 class="text-lg font-semibold text-gray-800 dark:text-white"> Honey Sakura Shampoo  </h1>
+                        <p class="text-sm text-gray-500 dark:text-white">Cleanses and repairs hair while adding softness and a pleasant floral scent. </p>
+                        <div >
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                        </div>
+                        <p class="text-xl font-bold text-pink-500 dark:text-white"> $15</p>
+                        <div class=" w-full flex justify-end">
+                            <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
+                        </div>
+                    </div>
+                    </div>
+                  <!-- End cards -->
+                   <!-- Cards8 -->
+                    <div class="shadow-lg p-3  rounded-lg h-auto border-2 border-black transition duration-300"  data-aos="fade-up-left">
+                    <!-- Image -->
+                    <div class="w-full h-48 rounded-md overflow-hidden bg-slate-200 group">
+                    <img 
+                       class="w-full h-full object-cover transition duration-300 hover:scale-100  img-hover"
+                       src="https://i.pinimg.com/736x/3e/dc/73/3edc737be01da14014f51b822062a6ee.jpg" 
+                       alt="Gisou">
+                    </div>
+                         <!-- Content -->
+                    <div class="mt-4 space-y-2">
+                        <h1 class="text-lg font-semibold text-gray-800 dark:text-white">Gisou</h1>
+                        <p class="text-sm text-gray-500 dark:text-white"> Enriched with honey to nourish, strengthen, and add shine to hair.</p>
+                        <div >
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                        </div>
+                        <p class="text-xl font-bold text-pink-500 dark:text-white"> $35</p>
+                        <div class=" w-full flex justify-end">
+                            <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
+                        </div>
+                    </div>
+                    </div>
+                  <!-- End cards -->
+                   <!-- Cards9 -->
+                    <div class="shadow-lg p-3 rounded-lg h-auto border-2 border-blac transition duration-300" data-aos="fade-up-right">
+                    <!-- Image -->
+                    <div class="w-full h-48 rounded-md overflow-hidden group ">
+                    <img 
+                       class="w-full h-full object-cover transition duration-300   img-hover"
+                       src="https://i.pinimg.com/736x/e8/b4/36/e8b43695985cd08e4962fb429fab20a1.jpg" 
+                       alt="ASYBO Aloe Vera Gel">
+                    </div>
+                         <!-- Content -->
+                    <div class="mt-4 space-y-2 ">
+                        <h1 class="text-lg font-semibold text-gray-800 dark:text-white">ASYBO Aloe Vera Gel </h1>
+                        <p class="text-sm text-gray-500 dark:text-white">Soothes and hydrates skin, perfect for calming sunburn or irritation. </p>
+                        <div >
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                        </div>
+                        <p class="text-xl font-bold text-pink-500 dark:text-white"> $10</p>
+                        <div class=" w-full flex justify-end">
+                            <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
+                        </div>
+                    </div>
+                    </div>
+                  <!-- End cards -->
+                   <!-- Cards10 -->
+                    <div class="shadow-lg p-3  rounded-lg h-auto border-2 border-black transition duration-300"  data-aos="flip-left">
+                    <!-- Image -->
+                    <div class="w-full h-48 rounded-md overflow-hidden bg-slate-200 group">
+                    <img 
+                       class="w-full h-full object-cover transition duration-300 hover:scale-100 img-hover"
+                       src="https://i.pinimg.com/736x/d2/fd/62/d2fd625ed7b9dbbd5ce8c10dbc268ce5.jpg" 
+                       alt="Vegan Collagen Eye Serum">
+                    </div>
+                         <!-- Content -->
+                    <div class="mt-4 space-y-2">
+                        <h1 class="text-lg font-semibold text-gray-800 dark:text-white">Vegan Collagen Eye Serum</h1>
+                        <p class="text-sm text-gray-500 dark:text-white"> Reduces fine lines and brightens under-eye area for a youthful look.</p>
+                        <div >
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                        </div>
+                        <p class="text-xl font-bold text-pink-500 dark:text-white"> $18</p>
+                        <div class=" w-full flex justify-end">
+                            <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
+                        </div>
+                    </div>
+                    </div>
+                  <!-- End cards -->
+                   <!-- Cards11 -->
+                    <div class="shadow-lg p-3  rounded-lg h-auto border-2 border-black  transition duration-300" data-aos="flip-right">
+                    <!-- Image -->
+                    <div class="w-full h-48 rounded-md overflow-hidden bg-slate-200 group">
+                    <img 
+                       class="w-full h-full object-cover transition duration-300 hover:scale-100 img-hover"
+                       src="https://i.pinimg.com/1200x/90/d2/ab/90d2ab4fed570bf04e36f4d33b43af02.jpg" 
+                       alt="Rare Beauty Body Lotion">
+                    </div>
+                         <!-- Content --> 
+                    <div class="mt-4 space-y-2">
+                        <h1 class="text-lg font-semibold text-gray-800 dark:text-white">Rare Beauty Body Lotion </h1>
+                        <p class="text-sm text-gray-500 dark:text-white">Moisturizes and softens skin with a lightweight and long-lasting formula.</p>
+                        <div >
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                        </div>
+                        <p class="text-xl font-bold text-pink-500 dark:text-white"> $28</p>
+                        <div class=" w-full flex justify-end">
+                            <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
+                        </div>
+                    </div>
+                    </div>
+                  <!-- End cards -->
+                   <!-- Cards12-->
+                    <div class="shadow-lg p-3  rounded-lg h-auto border-2 border-black  transition duration-300"data-aos="fade-up-left">
+                    <!-- Image -->
+                    <div class="w-full h-48 rounded-md overflow-hidden bg-slate-200 group">
+                    <img 
+                       class="w-full h-full object-cover transition duration-300 hover:scale-100 img-hover"
+                       src="https://i.pinimg.com/1200x/31/af/20/31af20757475d79e4c289113215c2ff2.jpg" 
+                       alt="Mary & May Clay Mask">
+                    </div>
+                         <!-- Content -->
+                    <div class="mt-4 space-y-2">
+                        <h1 class="text-lg font-semibold text-gray-800 dark:text-white">Mary & May Clay Mask</h1>
+                        <p class="text-sm text-gray-500 dark:text-white"> Absorbs excess oil and purifies pores for clearer and smoother skin. </p>
+                        <div >
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                        </div>
+                        <p class="text-xl font-bold text-pink-500 dark:text-white"> $20</p>
+                        <div class=" w-full flex justify-end">
+                            <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
+                        </div>
+                    </div>
+                    </div>
+                  <!-- End cards -->
+                   
+                   <!-- Cards13-->
+                    <div class="shadow-lg p-3  rounded-lg h-auto border-2 border-black  transition duration-300" data-aos="fade-up-right">
+                    <!-- Image -->
+                    <div class="w-full h-48 rounded-md overflow-hidden bg-slate-200 group">
+                    <img 
+                       class="w-full h-full object-cover transition duration-300 hover:scale-100 img-hover"
+                       src="https://i.pinimg.com/1200x/8a/a8/11/8aa811024f94bd396798fbb85cbfc0bb.jpg" 
+                       alt="Fino Hair Mask">
+                    </div>
+                         <!-- Content -->
+                    <div class="mt-4 space-y-2">
+                        <h1 class="text-lg font-semibold text-gray-800 dark:text-white">Fino Hair Mask </h1>
+                        <p class="text-sm text-gray-500 dark:text-white">Repairs damaged hair and deeply nourishes for smooth and silky results. </p>
+                        <div >
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                        </div>
+                        <p class="text-xl font-bold text-pink-500 dark:text-white"> $13</p>
+                        <div class=" w-full flex justify-end">
+                            <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
+                        </div>
+                    </div>
+                    </div>
+                  <!-- End cards -->
+                   <!-- Cards14-->
+                    <div class="shadow-lg p-3 rounded-lg h-auto border-2 border-black transition duration-300"data-aos="flip-left">
+                    <!-- Image -->
+                    <div class="w-full h-48 rounded-md overflow-hidden bg-slate-200 group">
+                    <img 
+                       class="w-full h-full object-cover transition duration-300 hover:scale-100 img-hover"
+                       src="https://i.pinimg.com/1200x/19/fd/0f/19fd0ff9a6225937aae26bbb0f7ba0c9.jpg" 
+                       alt="Etude Serum Mascara">
+                    </div>
+                         <!-- Content -->
+                    <div class="mt-4 space-y-2">
+                        <h1 class="text-lg font-semibold text-gray-800 dark:text-white">Etude Serum Mascara </h1>
+                        <p class="text-sm text-gray-500 dark:text-white"> Lengthens and strengthens lashes while keeping them healthy and glossy.</p>
+                        <div >
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                        </div>
+                        <p class="text-xl font-bold text-pink-500 dark:text-white"> $12</p>
+                        <div class=" w-full flex justify-end">
+                            <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
+                        </div>
+                    </div>
+                    </div>
+                  <!-- End cards -->
+                   <!-- Cards15-->
+                    <div class="shadow-lg p-3  rounded-lg h-auto border-2 border-black  transition duration-300"  data-aos="flip-right">
+                    <!-- Image -->
+                    <div class="w-full h-48 rounded-md overflow-hidden bg-slate-200 group">
+                    <img 
+                       class="w-full h-full object-cover transition duration-300 hover:scale-100 img-hover"
+                       src="https://i.pinimg.com/736x/fb/01/50/fb015096bb2fda234527f3e4d1be36e9.jpg" 
+                       alt="Biodance Collagen Mask">
+                    </div>
+                         <!-- Content -->
+                    <div class="mt-4 space-y-2">
+                        <h1 class="text-lg font-semibold text-gray-800 dark:text-white">Biodance Collagen Mask </h1>
+                        <p class="text-sm text-gray-500 dark:text-white">  Boosts skin elasticity and deeply hydrates for a firm and glowing look.</p>
+                        <div >
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                        </div>
+                        <p class="text-xl font-bold text-pink-500 dark:text-white"> $25</p>
+                        <div class=" w-full flex justify-end">
+                            <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
+                        </div>
+                    </div>
+                    </div>
+                  <!-- End cards -->
+                   <!-- Cards16-->
+                    <div class="shadow-lg p-3  rounded-lg h-auto border-2 border-black  transition duration-300" data-aos="fade-up-left">
+                    <!-- Image -->
+                    <div class="w-full h-48 rounded-md overflow-hidden bg-slate-200 group">
+                    <img 
+                       class="w-full h-full object-cover transition duration-300 hover:scale-100 img-hover"
+                       src="https://i.pinimg.com/1200x/55/48/a7/5548a7c1528ca70bd674040aaa892faa.jpg" 
+                       alt=" Vois Eye Patch">
+                    </div>
+                         <!-- Content -->
+                    <div class="mt-4 space-y-2">
+                        <h1 class="text-lg font-semibold text-gray-800 dark:text-white"> Vois Eye Patch </h1>
+                        <p class="text-sm text-gray-500 dark:text-white">Reduces puffiness and dark circles, leaving eyes refreshed and revitalized. </p>
+                        <div >
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                            <i class="fa-solid fa-star text-red-600"></i>
+                        </div>
+                        <p class="text-xl font-bold text-pink-500 dark:text-white"> $15</p>
+                        <div class=" w-full flex justify-end">
+                            <button class="px-5 py-2 bg-blue-500  courser   text-white rounded transition duration-300"> View</button>
+                        </div>
+                    </div>
+                    </div>
+
+                    
+                  <!-- End cards -->
+
+                  
                 </div>
             </div>
-            <div class="tab-content hidden" id="electronics">
-                <h1>Hello</h1>
-            </div>
-            <div class="tab-content hidden" id="fashion"></div>
-            <div class="tab-content hidden" id="beauty"></div>
-            <div class="tab-content hidden" id="sport"></div>
-
             </div>
 
         </div>
         
         </section>
+        
+        <!-- shop page -->
 
+        <section>
+        <div class="container mx-auto p-2 bg-white dark:bg-gray-900 min-h-screen">
+            <!-- Title -->
+            <h1 class="text-4xl font-bold mb-8 dark:text-white mt-4">Shopping Cart</h1>
+            <div class="grid lg:grid-cols-2 md:grid-cols-1 grid-cols-1 gap-8">
+                <!-- LEFT: Cart Items -->
+                <div class=" space-y-6 ">
 
-  <!-- footer -->
+                    <!-- Item 1 -->
+                    <div class="flex gap-6 bg-white dark:bg-gray-800 p-4 rounded-lg shadow " data-aos="fade-right"
+     data-aos-offset="300"
+     data-aos-easing="ease-in">
+                        <div class="w-40 h-56 bg-gray-100 dark:bg-gray-50 rounded-lg overflow-hidden">
+                            <img src="https://png.pngtree.com/png-vector/20240205/ourmid/pngtree-black-t-shirt-mockup-hanging-realistic-t-shirt-png-image_11645698.png" 
+                                class="w-full h-full object-cover p-3">
+                        </div>
+
+                        <div class="flex-1">
+                            <h2 class="text-lg font-semibold dark:text-white">Basic Tee</h2>
+                            <p class="text-gray-500">Sienna | Large</p>
+                            <p class="mt-2 font-semibold dark:text-white">$32.00</p>
+                            <p class="text-green-600 mt-4">✔ In stock</p>
+                        </div>
+
+                        <div class="flex flex-col items-end justify-between">
+                            <select class="border rounded-md p-1 dark:bg-gray-700 dark:text-white">
+                                <option>1</option>
+                                <option>2</option>
+                            </select>
+                            <button class="text-gray-400 hover:text-red-500 text-xl">✕</button>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="flex gap-6 bg-white dark:bg-gray-800 p-4 rounded-lg shadow" data-aos="fade-right"
+     data-aos-offset="400"
+     data-aos-easing="ease-in">
+                        <div class="w-40 h-56 bg-gray-100 dark:bg-gray-50 rounded-lg overflow-hidden">
+                            <img src="https://png.pngtree.com/png-vector/20240205/ourmid/pngtree-black-t-shirt-mockup-hanging-realistic-t-shirt-png-image_11645698.png" 
+                                class="w-full h-full object-cover p-3">
+                        </div>
+
+                        <div class="flex-1">
+                            <h2 class="text-lg font-semibold dark:text-white">Basic Tee</h2>
+                            <p class="text-gray-500">Black | Large</p>
+                            <p class="mt-2 font-semibold dark:text-white">$32.00</p>
+                            <p class="text-gray-400 mt-4">⏱ Ships in 3–4 weeks</p>
+                        </div>
+
+                        <div class="flex flex-col items-end justify-between">
+                            <select class="border rounded-md p-1 dark:bg-gray-700 dark:text-white">
+                                <option>1</option>
+                                <option>2</option>
+                            </select>
+                            <button class="text-gray-400 hover:text-red-500 text-xl">✕</button>
+                        </div>
+                    </div>
+                    <div class="flex gap-6 bg-white dark:bg-gray-800 p-4 rounded-lg shadow" data-aos="fade-right"
+     data-aos-offset="500"
+     data-aos-easing="ease-in">
+                        <div class="w-40 h-56 bg-gray-100 dark:bg-gray-50 rounded-lg overflow-hidden">
+                            <img src="https://png.pngtree.com/png-vector/20240205/ourmid/pngtree-black-t-shirt-mockup-hanging-realistic-t-shirt-png-image_11645698.png" 
+                                class="w-full h-full object-cover p-3">
+                        </div>
+
+                        <div class="flex-1">
+                            <h2 class="text-lg font-semibold dark:text-white">Basic Tee</h2>
+                            <p class="text-gray-500">Black | Large</p>
+                            <p class="mt-2 font-semibold dark:text-white">$32.00</p>
+                            <p class="text-gray-400 mt-4">⏱ Ships in 3–4 weeks</p>
+                        </div>
+
+                        <div class="flex flex-col items-end justify-between">
+                            <select class="border rounded-md p-1 dark:bg-gray-700 dark:text-white">
+                                <option>1</option>
+                                <option>2</option>
+                            </select>
+                            <button class="text-gray-400 hover:text-red-500 text-xl">✕</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT: Order Summary -->
+                <div class=" p-6  h-fit " data-aos="fade-left"
+     data-aos-offset="300"
+     data-aos-easing="ease-in">
+
+                    <h2 class="text-xl font-semibold mb-6 dark:text-white">Order summary</h2>
+
+                    <div class="space-y-4 text-gray-600 dark:text-gray-300">
+
+                        <div class="flex justify-between">
+                            <span>Subtotal</span>
+                            <span>$99.00</span>
+                        </div>
+
+                        <div class="flex justify-between">
+                            <span>Shipping</span>
+                            <span>$5.00</span>
+                        </div>
+
+                        <div class="flex justify-between">
+                            <span>Tax</span>
+                            <span>$8.32</span>
+                        </div>
+
+                        <hr class="dark:border-gray-600">
+
+                        <div class="flex justify-between font-semibold text-lg text-black dark:text-white">
+                            <span>Total</span>
+                            <span>$112.32</span>
+                        </div>
+
+                    </div>
+
+                 <!-- Button order -->
+                    <button class="w-full mt-6 py-3 rounded-lg text-white font-semibold
+                                bg-blue-800
+                                hover:from-blue-700 hover:to-indigo-700
+                                transition duration-300 shadow-md hover:shadow-lg">
+                        Add order
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+
+        <section class=" container mx-auto p-2">
+            <h1 class=" text-2xl mt-4 dark:text-white">You may also like.......</h1>
+            <div class=" container mx-auto mt-5 grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-5">    
+                <div class="w-full max-w-sm rounded-md p-6 b shadow-lg bg-white dark:bg-gray-800 border border-gray-200 " data-aos="fade-up-right">
+                    <a href="#">
+                        <img class="rounded-base mb-6 img-hover w-full h-48" src="https://www.pngarts.com/files/8/Apple-Watch-PNG-Image-Background.png" alt="product image" />
+                    </a>
+                    <div>
+                        <div class="flex items-center space-x-3 mb-6">
+                            <div class="flex items-center space-x-1 rtl:space-x-reverse">
+                                <svg class="w-5 h-5 text-yellow-400 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/></svg>
+                                <svg class="w-5 h-5 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/></svg>
+                                <svg class="w-5 h-5 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/></svg>
+                                <svg class="w-5 h-5 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/></svg>
+                                <svg class="w-5 h-5 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/></svg>
+                            </div>
+                            <span class="bg-blue-900 dark:text-blue-400 text-white text-sm font-medium px-3 py-1 rounded-lg">4.8 out of 5</span>
+                        </div>
+                        <a href="#">
+                            <h5 class="text-xl text-heading font-semibold tracking-tight dark:text-white">Apple Watch Series 7 GPS, Aluminium Case, Starlight</h5>
+                        </a>
+                        <div class="flex items-center justify-between mt-6">
+                            <span class="text-3xl font-extrabold text-heading dark:text-white">$599</span>
+                            <button type="button" class="inline-flex items-center bg-blue-600 rounded-lg text-white bg-brand hover:bg-brand-strong box-border border border-transparent focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-3 py-2 focus:outline-none">
+                                <svg class="w-4 h-4 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/></svg>
+                                Add to cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full max-w-sm rounded-md p-6 b shadow-lg bg-white dark:bg-gray-800 border border-gray-200 " data-aos="flip-left">
+                    <a href="#">
+                        <img class="rounded-base mb-6 img-hover w-full h-48" src="https://static.vecteezy.com/system/resources/thumbnails/057/459/906/small/magnificent-modern-running-shoes-bright-red-transparent-background-cutout-authentic-png.png" alt="product image" />
+                    </a>
+                    <div>
+                        <div class="flex items-center space-x-3 mb-6">
+                            <div class="flex items-center space-x-1 rtl:space-x-reverse">
+                                <svg class="w-5 h-5 text-yellow-400 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/></svg>
+                                <svg class="w-5 h-5 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/></svg>
+                                <svg class="w-5 h-5 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/></svg>
+                                <svg class="w-5 h-5 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/></svg>
+                                <svg class="w-5 h-5 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/></svg>
+                            </div>
+                            <span class="bg-blue-900 dark:text-blue-400 text-white text-sm font-medium px-3 py-1 rounded-lg">4.8 out of 5</span>
+                        </div>
+                        <a href="#">
+                            <h5 class="text-xl text-heading font-semibold tracking-tight dark:text-white">White Nike Sneakers With Sleek Design Featuring</h5>
+                        </a>
+                        <div class="flex items-center justify-between mt-6">
+                            <span class="text-3xl font-extrabold text-heading dark:text-white">$99</span>
+                            <button type="button" class="inline-flex items-center bg-blue-600 rounded-lg text-white bg-brand hover:bg-brand-strong box-border border border-transparent focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-3 py-2 focus:outline-none">
+                                <svg class="w-4 h-4 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/></svg>
+                                Add to cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full max-w-sm rounded-md p-6 b shadow-lg bg-white dark:bg-gray-800 border border-gray-200 " data-aos="flip-right">
+                    <a href="#">
+                        <img class="rounded-base mb-6 img-hover w-full h-48" src="https://static.vecteezy.com/system/resources/previews/048/396/135/non_2x/abstract-geometric-t-shirt-design-isolated-on-transparent-background-free-png.png" alt="product image" />
+                    </a>
+                    <div>
+                        <div class="flex items-center space-x-3 mb-6">
+                            <div class="flex items-center space-x-1 rtl:space-x-reverse">
+                                <svg class="w-5 h-5 text-yellow-400 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/></svg>
+                                <svg class="w-5 h-5 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/></svg>
+                                <svg class="w-5 h-5 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/></svg>
+                                <svg class="w-5 h-5 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/></svg>
+                                <svg class="w-5 h-5 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/></svg>
+                            </div>
+                            <span class="bg-blue-900 dark:text-blue-400 text-white text-sm font-medium px-3 py-1 rounded-lg">4.8 out of 5</span>
+                        </div>
+                        <a href="#">
+                            <h5 class="text-xl text-heading font-semibold tracking-tight dark:text-white">Abstract Geometric T-Shirt Design</h5>
+                        </a>
+                        <div class="flex items-center justify-between mt-6">
+                            <span class="text-3xl font-extrabold text-heading dark:text-white">$59</span>
+                            <button type="button" class="inline-flex items-center bg-blue-600 rounded-lg text-white bg-brand hover:bg-brand-strong box-border border border-transparent focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-3 py-2 focus:outline-none">
+                                <svg class="w-4 h-4 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/></svg>
+                                Add to cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full max-w-sm rounded-md p-6 b shadow-lg bg-white dark:bg-gray-800 border border-gray-200 "  data-aos="fade-up-left">
+                    <a href="#">
+                        <img class="rounded-base mb-6 img-hover w-full h-48" src="https://file.aiquickdraw.com/imgcompressed/img/compressed_21a9cb3444adb3ba62b7a43a14aa8b07.webp" alt="product image" />
+                    </a>
+                    <div>
+                        <div class="flex items-center space-x-3 mb-6">
+                            <div class="flex items-center space-x-1 rtl:space-x-reverse">
+                                <svg class="w-5 h-5 text-yellow-400 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/></svg>
+                                <svg class="w-5 h-5 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/></svg>
+                                <svg class="w-5 h-5 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/></svg>
+                                <svg class="w-5 h-5 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/></svg>
+                                <svg class="w-5 h-5 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/></svg>
+                            </div>
+                            <span class="bg-blue-900 dark:text-blue-400 text-white text-sm font-medium px-3 py-1 rounded-lg">4.8 out of 5</span>
+                        </div>
+                        <a href="#">
+                            <h5 class="text-xl text-heading font-semibold tracking-tight dark:text-white">500ml-Purple-Cleanser-HighQuality</h5>
+                        </a>
+                        <div class="flex items-center justify-between mt-6">
+                            <span class="text-3xl font-extrabold text-heading dark:text-white">$19</span>
+                            <button type="button" class="inline-flex items-center bg-blue-600 rounded-lg text-white bg-brand hover:bg-brand-strong box-border border border-transparent focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-3 py-2 focus:outline-none">
+                                <svg class="w-4 h-4 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/></svg>
+                                Add to cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+             
+                <div class="w-full max-w-sm rounded-md p-6 b shadow-lg bg-white dark:bg-gray-800 border border-gray-200 "  data-aos="fade-up-right">
+                    <a href="#">
+                        <img class="rounded-base mb-6 img-hover w-full h-48" src="https://static.vecteezy.com/system/resources/previews/050/816/704/non_2x/fleece-jacket-isolated-on-transparent-background-free-png.png" alt="product image" />
+                    </a>
+                    <div>
+                        <div class="flex items-center space-x-3 mb-6">
+                            <div class="flex items-center space-x-1 rtl:space-x-reverse">
+                                <svg class="w-5 h-5 text-yellow-400 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/></svg>
+                                <svg class="w-5 h-5 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/></svg>
+                                <svg class="w-5 h-5 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/></svg>
+                                <svg class="w-5 h-5 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/></svg>
+                                <svg class="w-5 h-5 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/></svg>
+                            </div>
+                            <span class="bg-blue-900 dark:text-blue-400 text-white text-sm font-medium px-3 py-1 rounded-lg">4.8 out of 5</span>
+                        </div>
+                        <a href="#">
+                            <h5 class="text-xl text-heading font-semibold tracking-tight dark:text-white">Fleece jacket isolated </h5>
+                        </a>
+                        <div class="flex items-center justify-between mt-6">
+                            <span class="text-3xl font-extrabold text-heading dark:text-white">$25</span>
+                            <button type="button" class="inline-flex items-center bg-blue-600 rounded-lg text-white bg-brand hover:bg-brand-strong box-border border border-transparent focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-3 py-2 focus:outline-none">
+                                <svg class="w-4 h-4 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/></svg>
+                                Add to cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full max-w-sm rounded-md p-6 b shadow-lg bg-white dark:bg-gray-800 border border-gray-200 "  data-aos="fade-up-right">
+                    <a href="#">
+                        <img class="rounded-base mb-6 img-hover w-full h-48" src="https://static.vecteezy.com/system/resources/thumbnails/050/511/812/small/army-green-mens-denim-jacket-button-up-collar-and-long-sleeves-for-a-trendy-slim-fit-look-png.png" alt="product image" />
+                    </a>
+                    <div>
+                        <div class="flex items-center space-x-3 mb-6">
+                            <div class="flex items-center space-x-1 rtl:space-x-reverse">
+                                <svg class="w-5 h-5 text-yellow-400 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/></svg>
+                                <svg class="w-5 h-5 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/></svg>
+                                <svg class="w-5 h-5 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/></svg>
+                                <svg class="w-5 h-5 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/></svg>
+                                <svg class="w-5 h-5 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/></svg>
+                            </div>
+                            <span class="bg-blue-900 dark:text-blue-400 text-white text-sm font-medium px-3 py-1 rounded-lg">4.8 out of 5</span>
+                        </div>
+                        <a href="#">
+                            <h5 class="text-xl text-heading font-semibold tracking-tight dark:text-white"> Green Mens Denim Jacket </h5>
+                        </a>
+                        <div class="flex items-center justify-between mt-6">
+                            <span class="text-3xl font-extrabold text-heading dark:text-white">$15</span>
+                            <button type="button" class="inline-flex items-center bg-blue-600 rounded-lg text-white bg-brand hover:bg-brand-strong box-border border border-transparent focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-3 py-2 focus:outline-none">
+                                <svg class="w-4 h-4 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/></svg>
+                                Add to cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+             
+            </div>
+           
+        </section>
+        </section>
+
+        <!-- footer -->
          <section>
             <footer class="bg-gray-100 dark:bg-gray-900 mt-16">
             <div class="container mx-auto px-6 py-12">
@@ -887,46 +1658,32 @@
             </div>
          </footer>
          </section>
+    </main>
 </div>
 
-<!-- JS -->
-
+<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
 <script>
-const buttons = document.querySelectorAll(".buttonToggle"); // use class
-const icons = document.querySelectorAll(".iconChange");
-
-// Click event for ALL buttons
-buttons.forEach(btn => {
-    btn.addEventListener("click", () => {
-
-        document.documentElement.classList.toggle("dark");
-
-        const isDark = document.documentElement.classList.contains("dark");
-
-        localStorage.theme = isDark ? "dark" : "light";
-
-        icons.forEach(icon => {
-            icon.classList.toggle("fa-moon", !isDark);
-            icon.classList.toggle("fa-sun", isDark);
+    const buttons = document.querySelectorAll(".buttonToggle");
+    const icons = document.querySelectorAll(".iconChange");
+    buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            document.documentElement.classList.toggle("dark");
+            const isDark = document.documentElement.classList.contains("dark");
+            localStorage.theme = isDark ? "dark" : "light";
+            icons.forEach(icon => {
+                icon.classList.toggle("fa-moon", !isDark);
+                icon.classList.toggle("fa-sun", isDark);
+            });
         });
     });
-});
-
-// Load saved theme on page start
-if (localStorage.theme === "dark") {
-    document.documentElement.classList.add("dark");
-
-    icons.forEach(icon => {
-        icon.classList.remove("fa-moon");
-        icon.classList.add("fa-sun");
-    });
-}
+    if (localStorage.theme === "dark") {
+        document.documentElement.classList.add("dark");
+        icons.forEach(icon => {
+            icon.classList.remove("fa-moon");
+            icon.classList.add("fa-sun");
+        });
+    }
+    AOS.init({ duration: 800, once: true });
 </script>
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
-
 </body>
-<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
 </html>

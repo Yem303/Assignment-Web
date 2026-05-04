@@ -1,10 +1,6 @@
 .icon-blur{
     box-shadow: 0px 0px 15px dodgerblue;
 }
-.head-blur{
-    box-shadow: 0px 0px 5px gray;
-    border: 0.5px solid gainsboro;
-}
 
 .tab-btn:hover
 {
@@ -22,3 +18,5 @@
 .img-hover:hover{
     transform: scale(1.1);
 }
+
+
